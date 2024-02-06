@@ -1,0 +1,2 @@
+PORT=9000
+DATABASE = postgres://postgres:Bm19081996@localhost:5432/FinalProject
