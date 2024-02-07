@@ -8,5 +8,6 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "eslint-disable": "no-unused-vars"
     }
 }
