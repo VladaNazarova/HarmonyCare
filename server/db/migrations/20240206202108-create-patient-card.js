@@ -2,40 +2,42 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('PatientCards', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING
-      },
-      login: {
-        type: Sequelize.STRING
-      },
-      password: {
-        type: Sequelize.STRING
-      },
-      phone_number: {
-        type: Sequelize.INTEGER
-      },
-      role: {
-        type: Sequelize.ENUM('patient', 'doctor'),
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onDelete: 'cascade',
         allowNull: false
       },
-      specialization: {
-        type: Sequelize.STRING,
-        allowNull: true
+      name: {
+        type: Sequelize.STRING
       },
-      experience: {
-        type: Sequelize.INTEGER,
-        allowNull: true
+      last_name: {
+        type: Sequelize.STRING
       },
-      img: {
-        type: Sequelize.STRING,
-        allowNull: true
+      age: {
+        type: Sequelize.INTEGER
+      },
+      gender: {
+        type: Sequelize.ENUM('Male', 'Female')
+      },
+      health_issues: {
+        type: Sequelize.STRING
+      },
+      analyses_result: {
+        type: Sequelize.STRING
+      },
+      treatment: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -48,6 +50,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('PatientCards');
   }
 };

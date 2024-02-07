@@ -7,6 +7,7 @@ export default function Navbar() {
         <Link to="/"> Main </Link>
         <Link to="/register"> Registration </Link>
         <Link to="/login"> Login </Link>
+        <Link to="/doctorsaccount"> Account </Link>
         <Outlet />
       </nav>
     </div>
