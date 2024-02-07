@@ -11,6 +11,8 @@ export default function PatientForm({
   onAddPatient: (newPatient: PatientType) => void;
   setOpenForm: Dispatch<SetStateAction<boolean>>;
 }) {
+  const [open, setOpen] = useState(true);
+
   const cancelButtonRef = useRef(null);
 
   const genders = ["male", "female"];
@@ -28,6 +30,7 @@ export default function PatientForm({
         withCredentials: true,
       });
       onAddPatient(data);
+      setOpen(false);
       setOpenForm(false);
     } catch (error) {
       console.log(error);
@@ -308,7 +311,7 @@ export default function PatientForm({
                           <div className="mt-6 flex items-center justify-end gap-x-6">
                             <button
                               type="button"
-                              onClick={() => setOpenForm(false)}
+                              onClick={() => setOpen(false)}
                               ref={cancelButtonRef}
                               className="text-sm font-semibold leading-6 text-gray-900"
                             >
@@ -316,6 +319,7 @@ export default function PatientForm({
                             </button>
                             <button
                               type="submit"
+                              onClick={() => setOpen(false)}
                               className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                               Save
