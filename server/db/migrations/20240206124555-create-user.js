@@ -18,6 +18,24 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      role: {
+        type: Sequelize.STRING
+      },
+      phone_number: {
+        type: Sequelize.STRING
+      },
+      doctor_id: {
+        type: Sequelize.INTEGER
+      },
+      specialization: {
+        type: Sequelize.STRING
+      },
+      experience: {
+        type: Sequelize.INTEGER
+      },
+      img: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
