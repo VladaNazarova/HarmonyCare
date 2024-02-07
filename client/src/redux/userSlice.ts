@@ -9,6 +9,7 @@ const initialState: UserSliceType = {
       password: "",
       phone_number: ""
     },
+    
     isLoading: true,
   };
 

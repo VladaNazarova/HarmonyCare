@@ -25,7 +25,7 @@ export default function Registration() {
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(fetchAddUser(user)).then(() => {
-      navigate("/register");
+      navigate("/");
     });
   };
 
