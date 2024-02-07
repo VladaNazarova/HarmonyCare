@@ -37,7 +37,6 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public/')));
-// app.use(cors());
 
 app.use('/api', userRouter)
 app.use('/services', serviceRouter);
