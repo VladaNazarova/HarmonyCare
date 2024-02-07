@@ -14,6 +14,8 @@ export type userType = {
     id: number;
     name: string;
     description: string;
+    promo: string;
+    logo: string;
   };
   export type ServicesType = Array<ServiceTypes>;
 
