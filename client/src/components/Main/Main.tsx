@@ -41,7 +41,7 @@ export default function Main(): JSX.Element {
             <div className={styles.promo}>
               <h2 className={styles.promoText}>{se.promo}</h2>
             </div>
-            <img src={se.logo} alt={se.name} className="max-w-xs mx-auto" />
+            <img src={se.logo} alt={se.name} className={styles.shlyapa} />
             <div className={styles.divButton}>
               <button className={styles.buttonText}>more details</button>
             </div>
