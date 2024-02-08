@@ -15,7 +15,7 @@ export default function PatientForm({
 
   const cancelButtonRef = useRef(null);
 
-  const genders = ["male", "female"];
+  const genders = ["Male", "Female"];
   const [selected, setSelected] = useState(genders[0]);
 
   const handleAdd = async (e: FormEvent<HTMLFormElement>) => {

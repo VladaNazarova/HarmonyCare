@@ -1,11 +1,14 @@
 import { Link, NavigateFunction, Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchLogoutUser } from "../../redux/thunks";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
-  // const userRole = useSelector((state) => state.user.loggedUser.role);
+  const isAuthenticated = useSelector((store) => store.userSlice.loggedUser.email);
+  // const user = useSelector((store)=>store.userSlice)
+  // user.role==='doctor'
 
   const handleLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -26,31 +29,50 @@ export default function Navbar() {
           HarmonyCare Medical Center
         </div>
         <nav className="space-x-4">
-          <Link
-            to="/"
-            className="text-white hover:text-gray-300 transition duration-300"
-          >
-            Home
-          </Link>
-          <Link
-            to="/register"
-            className="text-white hover:text-gray-300 transition duration-300"
-          >
-            Register
-          </Link>
-          <Link
-            to="/login"
-            className="text-white hover:text-gray-300 transition duration-300"
-          >
-            Login
-          </Link>
-          <Link
-            to="/logout"
-            onClick={handleLogout}
-            className="text-white hover:text-gray-300 transition duration-300"
-          >
-            Logout
-          </Link>
+          {isAuthenticated ? (
+            <>
+              <Link
+                to="/"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Home
+              </Link>
+              <Link
+                to="/doctorsaccount"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Doctors account
+              </Link>
+              <Link
+                to="/clientsaccount"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Clients account
+              </Link>
+              <Link
+                to="/logout"
+                onClick={handleLogout}
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                to="/register"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Register
+              </Link>
+              <Link
+                to="/login"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Login
+              </Link>
+            </>
+          )}
           <Outlet />
         </nav>
       </div>
