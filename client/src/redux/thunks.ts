@@ -6,7 +6,7 @@ import { ServiceTypes, ServicesType, userType, userLoggedType, } from "../types/
 export const fetchAddUser = createAsyncThunk(
   "user/create",
   async (user: userType) => { 
-    const response: AxiosResponse<userType> = await axios.post(`${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`, user);
+    const response: AxiosResponse<userType> = await axios.post(`${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`, user, { withCredentials: true });
     return response.data;
   } 
 );
