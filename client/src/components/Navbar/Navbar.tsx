@@ -33,6 +33,12 @@ export default function Navbar() {
             Home
           </Link>
           <Link
+            to="/doctorsaccount"
+            className="text-white hover:text-gray-300 transition duration-300"
+          >
+            Doctors account
+          </Link>
+          <Link
             to="/register"
             className="text-white hover:text-gray-300 transition duration-300"
           >
