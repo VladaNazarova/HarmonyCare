@@ -25,4 +25,13 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    await PatientCard.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(401).json(err);
+  }
+});
+
 module.exports = router;
