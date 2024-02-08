@@ -1,4 +1,11 @@
-import { Dispatch, FormEvent, Fragment, SetStateAction, useRef, useState } from "react";
+import {
+  Dispatch,
+  FormEvent,
+  Fragment,
+  SetStateAction,
+  useRef,
+  useState,
+} from "react";
 import { Dialog, Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
@@ -15,7 +22,7 @@ export default function PatientForm({
 
   const cancelButtonRef = useRef(null);
 
-  const genders = ["male", "female"];
+  const genders = ["Male", "Female"];
   const [selected, setSelected] = useState(genders[0]);
 
   const handleAdd = async (e: FormEvent<HTMLFormElement>) => {
@@ -23,12 +30,7 @@ export default function PatientForm({
     const formData = new FormData(e.target as HTMLFormElement);
     try {
       const data = Object.fromEntries(formData.entries());
-      await axios.post("http://localhost:9000/doctorsaccount", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      await axios.post("http://localhost:9000/doctorsaccount", data);
       onAddPatient(data);
       setOpen(false);
       setOpenForm(false);
