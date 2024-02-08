@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       phone_number: DataTypes.INTEGER,
       role: {
         type: DataTypes.ENUM('patient', 'doctor'),
-        allowNull: false
+        allowNull: false,
+        defaultValue: 'patient'
       },
       specialization: {
         type: DataTypes.STRING,

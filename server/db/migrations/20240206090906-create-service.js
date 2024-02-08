@@ -21,25 +21,6 @@ module.exports = {
       logo: {
         type: Sequelize.STRING
       },
-      phone_number: {
-        type: Sequelize.INTEGER
-      },
-      role: {
-        type: Sequelize.ENUM('patient', 'doctor'),
-        allowNull: false
-      },
-      specialization: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      experience: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-      },
-      img: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

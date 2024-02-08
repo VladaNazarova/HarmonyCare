@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { userType } from "../../types/types";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchAddUser } from "../../redux/thunks";
 
 export default function Registration() {
   const [user, setUser] = useState<userType>({
-    id: 0,
     email: "",
     login: "",
     password: "",
-    phone_number: "",
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    phone_number: ""
   });
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch()
