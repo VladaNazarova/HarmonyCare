@@ -1,46 +1,53 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "../Slider/Slider";
-
-export type Services = {
-  id: number;
-  name: string;
-  description: string;
-};
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { fetchGetServices } from "../../redux/thunks";
+import styles from "./Main.module.scss";
+import GreatingBar from "../GreatingBar/GreatingBar";
 
 export default function Main(): JSX.Element {
-  const [serv, setServ] = useState<Services[]>([]);
-
+  const serv = useAppSelector((store) => store.serviceSlice.services);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    axios
-      .get<Services[]>("http://localhost:9000/services/")
-      .then((response) => {
-        setServ(response.data);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+    dispatch(fetchGetServices());
+  }, [dispatch]);
 
-  const nav = useNavigate();
+  const navigate = useNavigate();
 
-  const servicePages = (id: number) => {
-    nav(`/services/${id}`);
+  const goToServicePage = (id: number) => {
+    navigate(`/services/${id}`);
   };
+
   return (
     <div>
+      <GreatingBar />
       <Slider />
-
-      {!serv.length && <p>Данные отсутствуют</p>}
-      {serv.map((se) => (
-        <div
-          key={se.id}
-          className="border-4 p-4 border-purple-400 rounded-xl m-8 h-64 w-96"
-        >
-          <p className="text-xl text-center">{se.name}</p>
-
-          <button onClick={() => servicePages(se.id)}>Подробнее</button>
-        </div>
-      ))}
+      <div className={styles.mostVServ}>Most visited services:</div>
+      {!serv.length && (
+        <p className="text-center mt-5 text-lg">Data not available</p>
+      )}
+      <div className={styles.cardsBlock}>
+        {serv.map((se) => (
+          <div
+            key={se.id}
+            className={`${styles.key} cursor-pointer`}
+            onClick={() => goToServicePage(se.id)}
+          >
+            <div className={styles.headText}>
+              <h2 className={styles.seName}>{se.name}</h2>
+            </div>
+            <div className={styles.promo}>
+              <h2 className={styles.promoText}>{se.promo}</h2>
+            </div>
+            <img src={se.logo} alt={se.name} className="max-w-xs mx-auto" />
+            <div className={styles.divButton}>
+              <button className={styles.buttonText}>more details</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

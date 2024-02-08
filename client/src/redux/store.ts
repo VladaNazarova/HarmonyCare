@@ -1,12 +1,18 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userSlice from "./userSlice";
+import serviceSlice from "./serviceSlice";
+import servPage from "./servPageSlice"
 
 
 const storeOptions = {
-    reducer: {
-        userSlice
-    }
-}
+  reducer: {
+    userSlice,
+    serviceSlice,
+    servPage
+  },
+};
+
+
 
 export const store = configureStore(storeOptions)
 

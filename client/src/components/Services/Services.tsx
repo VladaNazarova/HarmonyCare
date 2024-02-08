@@ -1,26 +1,26 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { fetchPageService } from "../../redux/thunks";
 
-const Services = (props: Services) => {
-  const [service, setService] = useState(null);
-  const { id } = useParams();
+type Params = {
+  id: string
+}
+
+const Services = () => {
+  const { id } = useParams<Params>();
+  const dispatch = useAppDispatch();
+  const serv = useAppSelector((state) => state.servPage.service);
+  const loading = useAppSelector((state) => state.servPage.isLoading);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:9000/services/${id}`)
-      .then((response) => {
-        setService(response.data);
-      })
-      .catch((err) => console.error(err));
-  }, [id]);
-
-  if (!service) return <div>Loading...</div>;
-
+    if (id) dispatch(fetchPageService(id));
+  }, [id, dispatch]);
+  if (loading || !serv) return <div>Loading...</div>;
   return (
     <div>
-      <h1>{service.name}</h1>
-      <p>{service.description}</p>
+      <h1>{serv.name}</h1>
+      <p>{serv.description}</p>
     </div>
   );
 };

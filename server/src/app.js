@@ -21,6 +21,7 @@ const sessionConfig = {
 }
 
 const userRouter = require('./routes/user')
+const accountRouter = require('./routes/doctor')
 const serviceRouter = require('./routes/service.router')
 
 
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(process.cwd(), 'public/')));
 
+app.use('/doctorsaccount', accountRouter);
 app.use('/api', userRouter)
 app.use('/services', serviceRouter);
 
