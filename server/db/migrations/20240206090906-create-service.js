@@ -15,6 +15,12 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      promo: {
+        type: Sequelize.STRING
+      },
+      logo: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
