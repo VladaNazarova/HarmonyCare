@@ -6,7 +6,9 @@ import { useSelector } from "react-redux";
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
-  const isAuthenticated = useSelector((store) => store.userSlice.loggedUser.email);
+  const isAuthenticated = useSelector(
+    (store) => store.userSlice.loggedUser.email
+  );
   // const user = useSelector((store)=>store.userSlice)
   // user.role==='doctor'
 
