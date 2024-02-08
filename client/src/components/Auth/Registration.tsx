@@ -5,23 +5,23 @@ import { useAppDispatch } from "../../redux/hooks";
 import { fetchAddUser } from "../../redux/thunks";
 
 export default function Registration() {
-  const [user, setUser] = useState<userType>({
+  const [reg, setReg] = useState<userType>({
     email: "",
     login: "",
     password: "",
-    phone_number: ""
+    phone_number: "",
   });
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setReg({ ...reg, [e.target.name]: e.target.value });
   };
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(fetchAddUser(user)).then(() => {
-      navigate("/");
+    dispatch(fetchAddUser(reg)).then(() => {
+      navigate("/login");
     });
   };
 
@@ -50,7 +50,7 @@ export default function Registration() {
             <div className="mt-2">
               <input
                 onChange={handleChange}
-                value={user.email}
+                value={reg.email}
                 name="email"
                 type="email"
                 autoComplete="email"
@@ -69,7 +69,7 @@ export default function Registration() {
             <div className="mt-2">
               <input
                 onChange={handleChange}
-                value={user.login}
+                value={reg.login}
                 name="login"
                 type="text"
                 autoComplete="login"
@@ -88,7 +88,7 @@ export default function Registration() {
             <div className="mt-2">
               <input
                 onChange={handleChange}
-                value={user.phone_number}
+                value={reg.phone_number}
                 name="phone_number"
                 type="text"
                 autoComplete="phone_number"
@@ -109,7 +109,7 @@ export default function Registration() {
             <div className="mt-2">
               <input
                 onChange={handleChange}
-                value={user.password}
+                value={reg.password}
                 name="password"
                 type="password"
                 autoComplete="current-password"
