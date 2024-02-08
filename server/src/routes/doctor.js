@@ -34,4 +34,21 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const patient = await PatientCard.findByPk(req.params.id);
+    patient.name = req.body.name;
+    patient.last_name = req.body.last_name;
+    patient.age = req.body.age;
+    patient.health_issues = req.body.health_issues;
+    patient.analyses_result = req.body.analyses_result;
+    patient.treatment = req.body.treatment;
+    patient.save();
+    res.json(patient);
+  } catch (err) {
+    console.log(err);
+    res.status(401).json(err);
+  }
+});
+
 module.exports = router;

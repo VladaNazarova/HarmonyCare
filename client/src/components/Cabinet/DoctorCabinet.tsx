@@ -40,6 +40,14 @@ export default function DoctorCabinet() {
     );
   };
 
+  const updatePatient = (updatedPatient: PatientType) => {
+    setPatientData((prevPatientData) =>
+      prevPatientData.map((patient) =>
+        patient.id === updatedPatient.id ? updatedPatient : patient
+      )
+    );
+  };
+
   return (
     <div className="mx-auto max-w-5xl my-16">
       <div className="lg:flex lg:items-center lg:justify-between my-16">
@@ -98,6 +106,7 @@ export default function DoctorCabinet() {
             key={patient.id}
             patient={patient}
             removePatient={removePatient}
+            updatePatient={updatePatient}
           />
         ))}
       </ul>
