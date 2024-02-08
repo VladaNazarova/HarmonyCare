@@ -1,12 +1,12 @@
 import { Link, NavigateFunction, Outlet, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchLogoutUser } from "../../redux/thunks";
-import { useSelector } from "react-redux";
+
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
-  const isAuthenticated = useSelector(
+  const isAuthenticated = useAppSelector(
     (store) => store.userSlice.loggedUser.email
   );
   // const user = useSelector((store)=>store.userSlice)

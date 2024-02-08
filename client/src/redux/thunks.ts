@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import type { AxiosResponse } from 'axios';
-import { ServiceTypes, ServicesType, userType, userLoggedType, } from "../types/types";
+import type { AxiosError, AxiosResponse } from 'axios';
+import { ServiceTypes, ServicesType, userType, userLoggedType, UserType, } from "../types/types";
 
 export const fetchAddUser = createAsyncThunk(
   "user/create",
@@ -34,13 +34,19 @@ export const fetchGetServices = createAsyncThunk('services/all', async ()=>{
   return response.data
 })
 
+
+
 export const fetchPageService = createAsyncThunk(
   "service/page",
-  async (id: string) => {
-    const response = await axios.get<ServiceTypes>(
-      `${import.meta.env.VITE_URL}/services/${id}`
-    );
-    return response.data;
+  async (id: string, { rejectWithValue }) => {
+    try {
+      const response = await axios.get<{
+        service: ServiceTypes;
+        specialist: UserType;
+      }>(`${import.meta.env.VITE_URL}/services/${id}`);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
-

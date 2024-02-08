@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ServiceTypes } from "../types/types";
+import type { ServiceTypes, UserType } from "../types/types";
 import { fetchPageService } from "./thunks";
 
 const initialState = {
   service: null as ServiceTypes | null,
+  specialist: null as UserType | null,
   isLoading: true,
   error: null as string | null,
 };
@@ -17,7 +18,8 @@ const servPageSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchPageService.fulfilled, (state, action) => {
-      state.service = action.payload;
+      state.service = action.payload.service;
+      state.specialist = action.payload.specialist;
       state.isLoading = false;
     });
     builder.addCase(fetchPageService.rejected, (state, action) => {

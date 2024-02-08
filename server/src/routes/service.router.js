@@ -1,5 +1,6 @@
 const serviceRouter = require('express').Router();
-const { Service } = require('../../db/models');
+
+const { Service, User } = require('../../db/models');
 
 serviceRouter.get('/', async (req, res) => {
   try {
@@ -11,16 +12,20 @@ serviceRouter.get('/', async (req, res) => {
 });
 serviceRouter.get('/:id', async (req, res) => {
   try {
-    const serviceId = await Service.findByPk(req.params.id);
-    if (serviceId) {
-      res.json(serviceId);
+    const service = await Service.findByPk(req.params.id, {
+      include: [{ model: User, as: 'specialization' }]
+    });
+    if (service) {
+      res.json(service);
     } else {
       res.status(404).json({ message: 'Service not found' });
     }
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.log('QQQ');
+    res.status(500).json({ error: error.message,  });
   }
 });
+
 
 
 module.exports = serviceRouter;
