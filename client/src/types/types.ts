@@ -5,7 +5,13 @@ export type userType = {
     phone_number:string;
   };
 
+  export type userLoggedType = {
+    email: string;
+    password: string;
+  };
+
   export type UserSliceType = {
     user: userType;
+    loggedUser: userLoggedType;
     isLoading: boolean;
   }

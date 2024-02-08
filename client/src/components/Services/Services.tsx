@@ -8,7 +8,7 @@ const Services = (props: Services) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/services/${id}`)
+      .get(`http://localhost:9000/services/${id}`)
       .then((response) => {
         setService(response.data);
       })

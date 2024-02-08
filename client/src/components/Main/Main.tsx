@@ -14,7 +14,7 @@ export default function Main(): JSX.Element {
 
   useEffect(() => {
     axios
-      .get<Services[]>("http://localhost:3000/services/")
+      .get<Services[]>("http://localhost:9000/services/")
       .then((response) => {
         setServ(response.data);
       })
