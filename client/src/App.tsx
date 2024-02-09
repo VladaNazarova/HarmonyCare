@@ -12,13 +12,16 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
+   <div style={{ marginTop: '100px' }}>
+   <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/doctorsaccount" element={<DoctorCabinet/>}></Route>
         <Route path="/services/:id" element={<Services />}></Route>
       </Routes>
+   </div>
+
     </>
   );
 }

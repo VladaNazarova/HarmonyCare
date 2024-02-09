@@ -21,7 +21,7 @@ export default function Main(): JSX.Element {
   };
 
   return (
-    <div>
+    <div >
       <GreatingBar />
       <Slider />
       <div className={styles.mostVServ}>Most visited services:</div>
