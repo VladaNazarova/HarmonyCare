@@ -29,7 +29,7 @@ export default function Registration() {
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-          className="mx-auto h-15 w-auto"
+          className="mx-auto h-15 w-auto"   style={{ maxHeight: '200px' }}
           src="./src/assets/_ce4843c4-f71a-420e-ad58-f6340ee54748.jpeg"
           alt="HarmonyCare Logo"
         />

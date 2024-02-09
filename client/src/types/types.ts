@@ -39,10 +39,19 @@ export type userType = {
     password: string;
   };
 
+  export type authUserType = {
+    user: string;
+  }
+  export type roleUserType = {
+    role: string,
+  }
+
   export type UserSliceType = {
     user: userType;
     loggedUser: userLoggedType;
+    authUser: authUserType;
     isLoading: boolean;
+    roleUser: roleUserType
   }
 
   export type ServiceTypes = {

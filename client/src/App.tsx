@@ -13,7 +13,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
+   <div style={{ marginTop: '100px' }}>
+   <Routes>
         <Route path="/" element={<Main />}></Route>
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/login" element={<Login />}></Route>
@@ -21,6 +22,8 @@ function App() {
         <Route path="/services/:id" element={<Services />}></Route>
         <Route path="/appointment/:id" element={<Appointment />} />
       </Routes>
+   </div>
+
     </>
   );
 }

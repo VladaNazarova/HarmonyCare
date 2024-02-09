@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAddUser, fetchLoginUser, fetchLogoutUser } from "./thunks";
+import { fetchAddUser, fetchCheckRole, fetchCheckUserSession, fetchLoginUser, fetchLogoutUser } from "./thunks";
 import { UserSliceType } from "../types/types";
 
 const initialState: UserSliceType = {
@@ -12,6 +12,12 @@ const initialState: UserSliceType = {
   loggedUser: {
     email: "",
     password: "",
+  },
+  authUser: {
+    user: "",
+  },
+  roleUser: {
+    role: ""
   },
   isLoading: true,
 };
@@ -27,6 +33,7 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchAddUser.fulfilled, (state, action) => {
       state.user = action.payload;
+      state.authUser = { user: action.payload.email };
       state.isLoading = false;
     });
     builder.addCase(fetchLoginUser.pending, (state) => {
@@ -35,6 +42,7 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchLoginUser.fulfilled, (state, action) => {
       state.loggedUser = action.payload;
+      state.authUser = { user: action.payload.email };
       state.isLoading = false;
     });
     builder
@@ -44,6 +52,25 @@ const userSlice = createSlice({
       })
       .addCase(fetchLogoutUser.fulfilled, (state) => {
         state.loggedUser = { email: "", password: "" };
+        state.authUser = { user: "" };
+        state.isLoading = false;
+      });
+      builder
+      .addCase(fetchCheckUserSession.pending, (state) => {
+        console.log("Checking user session");
+        state.isLoading = true;
+      })
+      .addCase(fetchCheckUserSession.fulfilled, (state, action) => {
+        state.authUser = action.payload; 
+        state.isLoading = false;
+      });
+      builder
+      .addCase(fetchCheckRole.pending, (state) => {
+        console.log("Getting user role");
+        state.isLoading = true;
+      })
+      .addCase(fetchCheckRole.fulfilled, (state, action) => {
+        state.roleUser = action.payload; 
         state.isLoading = false;
       });
   },
