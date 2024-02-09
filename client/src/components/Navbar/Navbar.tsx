@@ -1,16 +1,24 @@
+import { useEffect } from "react";
 import { Link, NavigateFunction, Outlet, useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/hooks";
-import { fetchLogoutUser } from "../../redux/thunks";
-import { useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { fetchCheckUserSession, fetchCheckRole, fetchLogoutUser } from "../../redux/thunks";
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
-  const isAuthenticated = useSelector(
-    (store) => store.userSlice.loggedUser.email
+  
+  const isAuthenticated = useAppSelector(
+    (store) => store.userSlice.authUser.user
   );
-  // const user = useSelector((store)=>store.userSlice)
-  // user.role==='doctor'
+  
+  const role = useAppSelector(
+    (store) => store.userSlice.roleUser.role
+  );
+  
+  useEffect(() => {
+    dispatch(fetchCheckUserSession());
+    dispatch(fetchCheckRole());
+  }, [dispatch, isAuthenticated]);
 
   const handleLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -20,7 +28,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-blue-700 py-4">
+    <div className="bg-blue-700 py-4 fixed top-0 w-full z-10">
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-bold flex items-center justify-between">
           <img
@@ -33,24 +41,60 @@ export default function Navbar() {
         <nav className="space-x-4">
           {isAuthenticated ? (
             <>
-              <Link
-                to="/"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Home
-              </Link>
-              <Link
-                to="/doctorsaccount"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Doctors account
-              </Link>
-              <Link
-                to="/clientsaccount"
-                className="text-white hover:text-gray-300 transition duration-300"
-              >
-                Clients account
-              </Link>
+              {role === "admin" && (
+                <>
+                  <Link
+                    to="/"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/doctorsaccount"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Doctors account
+                  </Link>
+                  <Link
+                    to="/clientsaccount"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Clients account
+                  </Link>
+                </>
+              )}
+              {role === "patient" && (
+                <>
+                  <Link
+                    to="/"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/clientsaccount"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Clients account
+                  </Link>
+                </>
+              )}
+              {role === "doctor" && (
+                <>
+                  <Link
+                    to="/"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Home
+                  </Link>
+                  <Link
+                    to="/doctorsaccount"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Doctors account
+                  </Link>
+                </>
+              )}
               <Link
                 to="/logout"
                 onClick={handleLogout}

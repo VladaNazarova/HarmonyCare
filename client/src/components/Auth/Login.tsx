@@ -14,16 +14,37 @@ export default function Login() {
 
   const handleAuth = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(fetchLoginUser(auth)).then(() => {
-      navigate("/");
+    dispatch(fetchLoginUser(auth))
+    .unwrap()
+    .then((action) => {
+      if(!action.err) {
+        navigate("/");
+      }
     });
   };
+
+  // const handleSubmit = (e: React.FormEvent): void => {
+  //   e.preventDefault()
+  //   dispatch(fetchSignUp(data))
+  //     .unwrap()
+  //     .then((action) => {
+  //       console.log(action)
+  //       if (!action.msg) {
+  //         navigate('/')
+  //       } else{
+  //         setMsg(action.msg)
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error(error)
+  //     })
+  // }
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img
-          className="mx-auto h-15 w-auto"
+          className="mx-auto h-15 w-auto" style={{ maxHeight: '200px' }}
           src="./src/assets/_ce4843c4-f71a-420e-ad58-f6340ee54748.jpeg"
           alt="Your Company"
         />

@@ -1,38 +1,70 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import type { AxiosResponse } from 'axios';
-import { ServiceTypes, ServicesType, userType, userLoggedType, } from "../types/types";
+import type { AxiosResponse } from "axios";
+import {
+  ServiceTypes,
+  ServicesType,
+  userType,
+  userLoggedType,
+} from "../types/types";
 
 export const fetchAddUser = createAsyncThunk(
   "user/create",
-  async (user: userType) => { 
-    const response: AxiosResponse<userType> = await axios.post(`${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`, user, { withCredentials: true });
+  async (user: userType) => {
+    const response: AxiosResponse<userType> = await axios.post(
+      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`,
+      user,
+      { withCredentials: true }
+    );
     return response.data;
-  } 
+  }
 );
 
 export const fetchLoginUser = createAsyncThunk(
   "user/login",
-  async(loggedUser: userLoggedType) => {
-    const response: AxiosResponse<userLoggedType> = await axios.post(`${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/login`, loggedUser, { withCredentials: true });
-    return response.data
+  async (loggedUser: userLoggedType) => {
+    const response: AxiosResponse<userLoggedType> = await axios.post(
+      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/login`,
+      loggedUser,
+      { withCredentials: true }
+    );
+    return response.data;
   }
-)
+);
 
-export const fetchLogoutUser = createAsyncThunk(
-  "user/logout",
-  async() => {
-    const response: AxiosResponse = await axios.get(`${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/logout`, {withCredentials: true});
-    return response.data
+export const fetchLogoutUser = createAsyncThunk("user/logout", async () => {
+  const response: AxiosResponse = await axios.get(
+    `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/logout`,
+    { withCredentials: true }
+  );
+  return response.data;
+});
+
+export const fetchCheckUserSession = createAsyncThunk(
+  "user/checkSession",
+  async () => {
+    const response: AxiosResponse = await axios.get(
+      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/auth`,
+      { withCredentials: true }
+    );
+    return response.data;
   }
-)
+);
 
-export const fetchGetServices = createAsyncThunk('services/all', async ()=>{
+export const fetchCheckRole = createAsyncThunk("user/role", async () => {
+  const response: AxiosResponse = await axios.get(
+    `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/role`,
+    { withCredentials: true }
+  );
+  return response.data;
+});
+
+export const fetchGetServices = createAsyncThunk("services/all", async () => {
   const response = await axios.get<ServicesType>(
     `${import.meta.env.VITE_URL}/services`
   );
-  return response.data
-})
+  return response.data;
+});
 
 export const fetchPageService = createAsyncThunk(
   "service/page",
@@ -43,4 +75,3 @@ export const fetchPageService = createAsyncThunk(
     return response.data;
   }
 );
-
