@@ -11,8 +11,24 @@ userRouter.get('/logout', (req, res) => {
 });
 
 userRouter.get('/auth', (req, res) => {
-  res.json({user: req.session?.newUser || ''})
-})
+  res.json({ user: req.session.email || '' });
+});
+
+userRouter.get('/role', async (req, res) => {
+  try {
+    const { email } = req.session;
+    const user = await User.findOne({ where: { email } });
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    const role = user.role;
+    console.log(role, "role");
+    res.json({ role });
+  } catch (error) {
+    console.error('Error fetching user role:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 userRouter.post('/register', async (req, res) => {
   const { email, login, phone_number, password, role } = req.body;
@@ -24,7 +40,7 @@ userRouter.post('/register', async (req, res) => {
       const hash = await bcrypt.hash(password, 10);
       const newUser = await User.create({ role, email, login, phone_number, password: hash });
       req.session.email = newUser.email;
-      req.session.save( () => {
+      req.session.save(() => {
         res.json({ msg: 'User registered', newUser });
       });
     }
@@ -42,7 +58,7 @@ userRouter.post('/login', async (req, res) => {
       if (checkPass) {
         req.session.email = user.email;
         req.session.save(() => {
-          res.json({ msg: 'Authorization succesfully completed', email: user.email});
+          res.json({ msg: 'Authorization succesfully completed', email: user.email, role: user.role });
         });
       } else {
         res.json({ err: 'Incorrect password' });
@@ -57,4 +73,3 @@ userRouter.post('/login', async (req, res) => {
 });
 
 module.exports = userRouter;
-
