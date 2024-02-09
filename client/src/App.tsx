@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Main from "./components/Main/Main";
 import DoctorCabinet from "./components/Cabinet/DoctorCabinet";
 import Services from "./components/Services/Services";
+import Appointment from "./components/Appointment/Appointment";
 
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
         <Route path="/" element={<Main />}></Route>
         <Route path="/register" element={<Registration />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/doctorsaccount" element={<DoctorCabinet/>}></Route>
+        <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
         <Route path="/services/:id" element={<Services />}></Route>
+        <Route path="/appointment/:id" element={<Appointment />} />
       </Routes>
     </>
   );

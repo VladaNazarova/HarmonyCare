@@ -18,8 +18,7 @@ const servPageSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(fetchPageService.fulfilled, (state, action) => {
-      state.service = action.payload.service;
-      state.specialist = action.payload.specialist;
+      state.service = action.payload;
       state.isLoading = false;
     });
     builder.addCase(fetchPageService.rejected, (state, action) => {
