@@ -39,6 +39,7 @@ userRouter.post('/register', async (req, res) => {
     } else {
       const hash = await bcrypt.hash(password, 10);
       const newUser = await User.create({ role, email, login, phone_number, password: hash });
+      console.log("🚀 ~ userRouter.post ~ newUser:", newUser)
       req.session.email = newUser.email;
       req.session.save(() => {
         res.json({ msg: 'User registered', newUser });
@@ -60,6 +61,7 @@ userRouter.post('/login', async (req, res) => {
         req.session.save(() => {
           res.json({ msg: 'Authorization succesfully completed', email: user.email, role: user.role });
         });
+        console.log("🚀 ~ req.session.save ~ session:", req.session)
       } else {
         res.json({ err: 'Incorrect password' });
       }

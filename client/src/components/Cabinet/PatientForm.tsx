@@ -30,8 +30,11 @@ export default function PatientForm({
     const formData = new FormData(e.target as HTMLFormElement);
     try {
       const data = Object.fromEntries(formData.entries());
-      await axios.post("http://localhost:9000/doctorsaccount", data);
-      onAddPatient(data);
+      const response = await axios.post("http://localhost:9000/doctorsaccount", data, {
+        withCredentials: true,
+      });
+      console.log("🚀 ~ handleAdd ~ response:", response)
+      onAddPatient(response.data);
       setOpen(false);
       setOpenForm(false);
     } catch (error) {

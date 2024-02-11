@@ -1,4 +1,4 @@
-import { useState, FormEvent, Fragment } from "react";
+import { useState, useEffect, FormEvent, Fragment } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import type { PatientType } from "../../types/types";
@@ -15,14 +15,24 @@ export default function PatientCard({
   removePatient,
   updatePatient,
 }: PatientCardProps) {
+  console.log("🚀 ~ patient:", patient);
+
   const [isEdit, setIsEdit] = useState(false);
 
   const genders = ["Male", "Female"];
   const [selected, setSelected] = useState(patient.gender);
 
+  useEffect(() => {
+    
+  }) 
+
+
+
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:9000/doctorsaccount/${patient.id}`);
+      await axios.delete(`http://localhost:9000/doctorsaccount/${patient.id}`, {
+        withCredentials: true,
+      });
       removePatient(patient.id);
     } catch (error) {
       console.error(error);
@@ -36,7 +46,10 @@ export default function PatientCard({
       const updatedPatientData = Object.fromEntries(formData.entries());
       const response = await axios.put(
         `http://localhost:9000/doctorsaccount/${patient.id}`,
-        updatedPatientData
+        updatedPatientData,
+        {
+          withCredentials: true,
+        }
       );
       updatePatient(response.data);
       setIsEdit(false);
@@ -245,7 +258,7 @@ export default function PatientCard({
       ) : (
         <div className="min-w-0 gap-x-4">
           <p className="text-lg font-semibold">
-            {patient.name} {patient.last_name}
+            {patient.name} {patient.last_name} {patient.id}
           </p>
           <p className="text-sm text-gray-500">Age: {patient.age}</p>
           <p className="text-sm text-gray-500">Gender: {patient.gender}</p>
