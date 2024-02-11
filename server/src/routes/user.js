@@ -101,6 +101,7 @@ userRouter.post('/login', async (req, res) => {
             role: user.role
           });
         });
+        console.log("🚀 ~ req.session.save ~ session:", req.session)
       } else {
         res.json({ err: 'Incorrect password' });
       }
