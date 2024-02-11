@@ -27,6 +27,8 @@ type PatientType = {
 };
 
 export type { UserType, PatientType };
+
+
 export type userType = {
     email: string;
     login: string;
@@ -46,12 +48,26 @@ export type userType = {
     role: string,
   }
 
+  export type doctorType = {
+    email: string,
+    login: string,
+    password: string,
+    role: string,
+    phone_number: string,
+    doctor_id: number, 
+    specialization: string,
+    experience: number,
+    img: string, 
+  }
+
+
   export type UserSliceType = {
     user: userType;
     loggedUser: userLoggedType;
     authUser: authUserType;
     isLoading: boolean;
     roleUser: roleUserType
+    userDoc: doctorType
   }
 
   export type ServiceTypes = {

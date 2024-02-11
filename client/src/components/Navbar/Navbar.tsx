@@ -28,12 +28,12 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-blue-700 py-4 fixed top-0 w-full z-10">
+    <div className="bg-blue-700 py-4 fixed top-0 w-full z-10" style={{opacity:"0.85"}}>
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-bold flex items-center justify-between">
           <img
-            className="mx-auto h-10 w-auto"
-            src="./src/assets/_ce4843c4-f71a-420e-ad58-f6340ee54748.jpeg"
+            className="mx-auto h-12 w-auto"
+            src="./src/assets/Logo without .png"
             alt="HarmonyCare Logo"
           />
           HarmonyCare Medical Center
@@ -60,6 +60,12 @@ export default function Navbar() {
                     className="text-white hover:text-gray-300 transition duration-300"
                   >
                     Clients account
+                  </Link>
+                  <Link
+                    to="/usercreation"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    Create account
                   </Link>
                 </>
               )}

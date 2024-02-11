@@ -12,9 +12,14 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       login: DataTypes.STRING,
       password: DataTypes.STRING,
-      phone_number: DataTypes.INTEGER,
+      phone_number: {
+        type: DataTypes.STRING,
+        // validate: {
+        //   is: /^\+\d{1,3}\d{5,14}(?:x\d{1,5})?$/,
+        // }
+      },
       role: {
-        type: DataTypes.ENUM('patient', 'doctor'),
+        type: DataTypes.ENUM('patient', 'doctor', 'admin'),
         allowNull: false,
         defaultValue: 'patient'
       },
@@ -28,6 +33,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       img: {
         type: DataTypes.STRING,
+        allowNull: true
+      },
+      doctor_id: {
+        type: DataTypes.INTEGER,
         allowNull: true
       }
     },

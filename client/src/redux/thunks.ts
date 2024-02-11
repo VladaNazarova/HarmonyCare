@@ -59,6 +59,18 @@ export const fetchCheckRole = createAsyncThunk("user/role", async () => {
   return response.data;
 });
 
+export const fetchAddDoc = createAsyncThunk(
+  "doctor/create",
+  async (data) => {
+    const response: AxiosResponse = await axios.post(
+      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/registerDoc`,
+      data,
+      { headers: {'Content-Type': 'multipart/form-data'}}
+    );
+    return response.data;
+  }
+);
+
 export const fetchGetServices = createAsyncThunk("services/all", async () => {
   const response = await axios.get<ServicesType>(
     `${import.meta.env.VITE_URL}/services`,

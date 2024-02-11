@@ -20,6 +20,8 @@ const sessionConfig = {
   }
 }
 
+
+
 const userRouter = require('./routes/user')
 const accountRouter = require('./routes/doctor')
 const serviceRouter = require('./routes/service.router')
@@ -35,6 +37,7 @@ app.use(
     credentials: true
   })
 );
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

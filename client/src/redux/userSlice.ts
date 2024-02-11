@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAddUser, fetchCheckRole, fetchCheckUserSession, fetchLoginUser, fetchLogoutUser } from "./thunks";
+import { fetchAddDoc, fetchAddUser, fetchCheckRole, fetchCheckUserSession, fetchLoginUser, fetchLogoutUser } from "./thunks";
 import { UserSliceType } from "../types/types";
 
 const initialState: UserSliceType = {
@@ -18,6 +18,17 @@ const initialState: UserSliceType = {
   },
   roleUser: {
     role: ""
+  },
+  userDoc: {
+    email: "",
+    login: "",
+    password: "",
+    phone_number: "",
+    role: "", 
+    specialization: "",
+    experience: 0,
+    img: "",
+    doctor_id: 0
   },
   isLoading: true,
 };
@@ -71,6 +82,15 @@ const userSlice = createSlice({
       })
       .addCase(fetchCheckRole.fulfilled, (state, action) => {
         state.roleUser = action.payload; 
+        state.isLoading = false;
+      });
+      builder
+      .addCase(fetchAddDoc.pending, (state) => {
+        console.log("Adding doctor");
+        state.isLoading = true;
+      })
+      .addCase(fetchAddDoc.fulfilled, (state, action) => {
+        state.userDoc = action.payload; 
         state.isLoading = false;
       });
   },
