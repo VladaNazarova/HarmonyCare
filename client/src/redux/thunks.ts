@@ -61,16 +61,29 @@ export const fetchCheckRole = createAsyncThunk("user/role", async () => {
 
 export const fetchGetServices = createAsyncThunk("services/all", async () => {
   const response = await axios.get<ServicesType>(
-    `${import.meta.env.VITE_URL}/services`
+    `${import.meta.env.VITE_URL}/services`,
+    { withCredentials: true }
   );
   return response.data;
 });
 
 export const fetchPageService = createAsyncThunk(
   "service/page",
-  async (id: string) => {
+  async (name: string) => {
     const response = await axios.get<ServiceTypes>(
-      `${import.meta.env.VITE_URL}/services/${id}`
+      `${import.meta.env.VITE_URL}/services/${name}`,
+      { withCredentials: true }
+    );
+    return response.data;
+  }
+);
+
+export const fetchDoctorsBySpecialization = createAsyncThunk(
+  "appointment/fetchDoctorsBySpecialization",
+  async (specialization: string) => {
+    const response = await axios.get(
+      `${import.meta.env.VITE_URL}/appointment/${specialization}`,
+      { withCredentials: true }
     );
     return response.data;
   }

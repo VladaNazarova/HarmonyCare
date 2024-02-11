@@ -13,17 +13,19 @@ function App() {
   return (
     <>
       <Navbar />
-   <div style={{ marginTop: '100px' }}>
-   <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/register" element={<Registration />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
-        <Route path="/services/:id" element={<Services />}></Route>
-        <Route path="/appointment/:id" element={<Appointment />} />
-      </Routes>
-   </div>
-
+      <div style={{ marginTop: "100px" }}>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/register" element={<Registration />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
+          <Route path="/:name" element={<Services />}></Route>
+          <Route
+            path="/appointment/:specialization"
+            element={<Appointment />}
+          />
+        </Routes>
+      </div>
     </>
   );
 }

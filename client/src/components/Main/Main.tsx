@@ -1,13 +1,16 @@
 
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Slider from "../Slider/Slider";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchGetServices } from "../../redux/thunks";
 import styles from "./Main.module.scss";
 import GreatingBar from "../GreatingBar/GreatingBar";
 
+
+
 export default function Main(): JSX.Element {
+
   const serv = useAppSelector((store) => store.serviceSlice.services);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -15,9 +18,9 @@ export default function Main(): JSX.Element {
   }, [dispatch]);
 
   const navigate = useNavigate();
-
-  const goToServicePage = (id: number) => {
-    navigate(`/services/${id}`);
+ 
+  const goToServicePage = (name: string) => {
+    navigate(`/${name}`);
   };
 
   return (
@@ -33,7 +36,7 @@ export default function Main(): JSX.Element {
           <div
             key={se.id}
             className={`${styles.key} cursor-pointer`}
-            onClick={() => goToServicePage(se.id)}
+            onClick={() => goToServicePage(se.name)}
           >
             <div className={styles.headText}>
               <h2 className={styles.seName}>{se.name}</h2>

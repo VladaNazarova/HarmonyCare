@@ -1,19 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useParams } from "react-router-dom";
+import { useAppDispatch } from "../../redux/hooks";
+import { fetchCheckUserSession } from "../../redux/thunks";
+import DoctorOnAppiont from "../DoctorOnAppoint/DoctorOnAppiont";
+
+
 
 const Appointment = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const { id } = useParams<{ id: string }>();
+
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(`Запись на прием к врачу с ID ${id} на дату ${selectedDate}`);
   };
+  useEffect(() => {
+    dispatch(fetchCheckUserSession());
+  }, [dispatch]);
 
   return (
     <div className="container mx-auto py-8">
+      <DoctorOnAppiont />
       <h2 className="text-2xl font-semibold text-center mb-4">
         Sign up for a consultation
       </h2>

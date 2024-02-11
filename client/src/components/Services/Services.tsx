@@ -4,18 +4,19 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPageService } from "../../redux/thunks";
 
 type Params = {
-  id: string;
+  name: string;
+  id: string
 };
 
 const Services = () => {
-  const { id } = useParams<Params>();
+  const { name } = useParams<Params>();
   const dispatch = useAppDispatch();
   const serv = useAppSelector((state) => state.servPage.service);
   const loading = useAppSelector((state) => state.servPage.isLoading);
 
   useEffect(() => {
-    if (id) dispatch(fetchPageService(id));
-  }, [id, dispatch]);
+    if (name) dispatch(fetchPageService(name));
+  }, [name, dispatch]);
 
   if (loading || !serv)
     return (
@@ -30,7 +31,7 @@ const Services = () => {
       <h1 className="text-3xl font-semibold text-gray-800 mb-4">{serv.name}</h1>
       <p className="text-gray-600 mb-6">{serv.description}</p>
       <Link
-        to={`/appointment/${id}`}
+        to={`/appointment/${name}`}
         className="inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
       >
         Sign up for a consultation
@@ -39,7 +40,6 @@ const Services = () => {
         <li>
           Individual care for pediatric patients from birth to 18 years of age
         </li>
-   
       </ul>
     </div>
   );

@@ -5,7 +5,7 @@ type UserType = {
   password: boolean;
   phone_number: number;
   role: string;
-  specialization?: string;
+  specialization: string;
   experience?: string;
   img?: string;
   createdAt: Date;
@@ -66,5 +66,27 @@ export type userType = {
 
   export type ServicesSliceType = {
     services: ServicesType;
+    isLoading: boolean;
+  };
+
+  export type DoctorsType = {
+    id:number,
+    email: string,
+    login: string,
+    name:string,
+    password: string,
+    role: string,
+    phone_number: number,
+    doctor_id: number,
+    specialization: string,
+    experience: number,
+    img: string,
+    createdAt: Date,
+    updatedAt: Date,
+  };
+  export type DoctorsTypeArr = Array<DoctorsType>;
+   
+  export type DoctorsSliceArr = {
+    status: DoctorsType;
     isLoading: boolean;
   };
