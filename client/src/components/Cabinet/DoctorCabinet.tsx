@@ -12,7 +12,7 @@ export default function DoctorCabinet() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/doctorsaccount")
+      .get("http://localhost:9000/doctorsaccount", {withCredentials: true})
       .then((response) => {
         setUserData(response.data.user);
       })
@@ -21,7 +21,7 @@ export default function DoctorCabinet() {
       });
 
     axios
-      .get("http://localhost:9000/doctorsaccount")
+      .get("http://localhost:9000/doctorsaccount", {withCredentials: true})
       .then((response) => {
         setPatientData(response.data.patient);
       })
