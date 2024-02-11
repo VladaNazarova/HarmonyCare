@@ -23,23 +23,6 @@ export default function Login() {
     });
   };
 
-  // const handleSubmit = (e: React.FormEvent): void => {
-  //   e.preventDefault()
-  //   dispatch(fetchSignUp(data))
-  //     .unwrap()
-  //     .then((action) => {
-  //       console.log(action)
-  //       if (!action.msg) {
-  //         navigate('/')
-  //       } else{
-  //         setMsg(action.msg)
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error(error)
-  //     })
-  // }
-
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
