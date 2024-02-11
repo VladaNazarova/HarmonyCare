@@ -23,7 +23,7 @@ export default function PatientCard({
   const [selected, setSelected] = useState(patient.gender);
 
   useEffect(() => {
-    
+
   }) 
 
 
@@ -258,7 +258,7 @@ export default function PatientCard({
       ) : (
         <div className="min-w-0 gap-x-4">
           <p className="text-lg font-semibold">
-            {patient.name} {patient.last_name} {patient.id}
+            {patient.name} {patient.last_name} 
           </p>
           <p className="text-sm text-gray-500">Age: {patient.age}</p>
           <p className="text-sm text-gray-500">Gender: {patient.gender}</p>
