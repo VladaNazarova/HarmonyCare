@@ -8,25 +8,24 @@ import DoctorCabinet from "./components/Cabinet/DoctorCabinet";
 import Services from "./components/Services/Services";
 import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
-
+import PayButton from "./components/Payment/PayButton";
 
 function App() {
   return (
     <>
       <Navbar />
-   <div style={{ marginTop: '100px' }}>
-   <Routes>
-        <Route path="/" element={<Main />}></Route>
-        <Route path="/register" element={<Registration />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/doctorsaccount" element={<DoctorCabinet/>}></Route>
-        <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
-        <Route path="/usercreation" element={<ClientCreation />}></Route>
-        <Route path="/services/:id" element={<Services />}></Route>
-
-      </Routes>
-   </div>
-
+      <div style={{ marginTop: "100px" }}>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/register" element={<Registration />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
+          <Route path="/payment" element={<PayButton />}></Route>
+          <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
+          <Route path="/usercreation" element={<ClientCreation />}></Route>
+          <Route path="/services/:id" element={<Services />}></Route>
+        </Routes>
+      </div>
     </>
   );
 }
