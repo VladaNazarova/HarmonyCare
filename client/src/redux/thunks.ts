@@ -93,10 +93,16 @@ export const fetchPageService = createAsyncThunk(
 export const fetchDoctorsBySpecialization = createAsyncThunk(
   "appointment/fetchDoctorsBySpecialization",
   async (specialization: string) => {
+    console.log(specialization);
+   
+    
     const response = await axios.get(
       `${import.meta.env.VITE_URL}/appointment/${specialization}`,
       { withCredentials: true }
+
     );
+    console.log(response);
+
     return response.data;
   }
 );

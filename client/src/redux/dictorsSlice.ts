@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {  fetchDoctorsBySpecialization } from "./thunks";
+import { fetchDoctorsBySpecialization } from "./thunks";
 import { DoctorsType } from "../types/types";
 
 export type DoctorsState = {
   doctors: DoctorsType[];
   status: "idle" | "loading" | "succeeded" | "failed";
- 
 };
 
 const initialState: DoctorsState = {
   doctors: [],
   status: "idle",
-  
 };
 export const doctorsSlice = createSlice({
   name: "doctorSlice",
