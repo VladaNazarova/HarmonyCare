@@ -59,17 +59,14 @@ export const fetchCheckRole = createAsyncThunk("user/role", async () => {
   return response.data;
 });
 
-export const fetchAddDoc = createAsyncThunk(
-  "doctor/create",
-  async (data) => {
-    const response: AxiosResponse = await axios.post(
-      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/registerDoc`,
-      data,
-      { headers: {'Content-Type': 'multipart/form-data'}}
-    );
-    return response.data;
-  }
-);
+export const fetchAddDoc = createAsyncThunk("doctor/create", async (data) => {
+  const response: AxiosResponse = await axios.post(
+    `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/registerDoc`,
+    data,
+    { headers: { "Content-Type": "multipart/form-data" } }
+  );
+  return response.data;
+});
 
 export const fetchGetServices = createAsyncThunk("services/all", async () => {
   const response = await axios.get<ServicesType>(
@@ -94,15 +91,37 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
   "appointment/fetchDoctorsBySpecialization",
   async (specialization: string) => {
     console.log(specialization);
-   
-    
+
     const response = await axios.get(
       `${import.meta.env.VITE_URL}/appointment/${specialization}`,
       { withCredentials: true }
-
     );
     console.log(response);
 
     return response.data;
+  }
+);
+
+export const fetchAddOrder = createAsyncThunk(
+  "order/add",
+  async (
+    { data, specialization }: { data: any; specialization: string },
+    { rejectWithValue }
+  ) => {
+    try {
+      const response: AxiosResponse = await axios.post(
+        `${import.meta.env.VITE_URL}/${
+          import.meta.env.VITE_API
+        }/${specialization}`,
+        data,
+        { headers: { "Content-Type": "multipart/form-data" } }
+      );
+      return response.data;
+    } catch (err) {
+      if (axios.isAxiosError(err) && err.response) {
+        return rejectWithValue(err.response.data);
+      }
+      return rejectWithValue(err.message);
+    }
   }
 );

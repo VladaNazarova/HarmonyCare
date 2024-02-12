@@ -3,6 +3,7 @@ import userSlice from "./userSlice";
 import serviceSlice from "./serviceSlice";
 import servPage from "./servPageSlice"
 import doctorSlice from "./dictorsSlice";
+import order from "./orderSlice";
 
 const storeOptions = {
   reducer: {
@@ -10,6 +11,7 @@ const storeOptions = {
     serviceSlice,
     servPage,
     doctorSlice,
+    order,
   },
 };
 

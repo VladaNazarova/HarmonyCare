@@ -13,15 +13,19 @@ module.exports = (sequelize, DataTypes) => {
      this.belongsTo(models.User,{foreignKey:'user_id'})
     }
   }
-  Order.init({
-    order_name: DataTypes.STRING,
-    service_type: DataTypes.STRING,
-    user_id: DataTypes.INTEGER,
-    date: DataTypes.STRING,
-    doctor_id: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Order',
-  });
+  Order.init(
+    {
+      order_name: DataTypes.STRING,
+      service_type: DataTypes.STRING,
+      user_id: DataTypes.INTEGER,
+      date: DataTypes.STRING,
+      time: DataTypes.STRING,
+      doctor_id: DataTypes.INTEGER
+    },
+    {
+      sequelize,
+      modelName: 'Order'
+    }
+  );
   return Order;
 };
