@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import { fetchLoginUser } from "../../redux/thunks";
 import { useAppDispatch } from "../../redux/hooks";
+import ErrorModal from "../Modal/Modal";
 
 export default function Login() {
   const navigate: NavigateFunction = useNavigate();
   const [auth, setAuth] = useState({ email: "", password: "" });
+  const [error1, setError1] = useState<string>("");
   const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -17,10 +19,17 @@ export default function Login() {
     dispatch(fetchLoginUser(auth))
     .unwrap()
     .then((action) => {
-      if(!action.err) {
+      if(action.error) {
+        setError1(action.error);
+      } else {
         navigate("/");
       }
+    }).catch(() => {
+      setError1("An error occurred while registering.");
     });
+  };
+  const closeModal = () => {
+    setError1("");
   };
 
   return (
@@ -38,6 +47,7 @@ export default function Login() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form onSubmit={handleAuth} className="space-y-6">
+        {error1 && <ErrorModal error={error1} onClose={closeModal} />}
           <div>
             <label
               htmlFor="email"

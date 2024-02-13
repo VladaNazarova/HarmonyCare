@@ -11,12 +11,16 @@ import {
 export const fetchAddUser = createAsyncThunk(
   "user/create",
   async (user: userType) => {
-    const response: AxiosResponse<userType> = await axios.post(
-      `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`,
-      user,
-      { withCredentials: true }
-    );
-    return response.data;
+    try {
+      const response: AxiosResponse<userType> = await axios.post(
+        `${import.meta.env.VITE_URL}/${import.meta.env.VITE_API}/register`,
+        user,
+        { withCredentials: true }
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error("Error occurred while adding user");
+    }
   }
 );
 
