@@ -31,6 +31,7 @@ const paymentRouter = require('./routes/payment');
 const passwordRouter = require('./routes/nodemailer')
 
 
+
 const PORT = process.env.PORT;
 
 app.use(session(sessionConfig))
@@ -50,7 +51,7 @@ app.use('/doctorsaccount', accountRouter);
 app.use('/api', userRouter)
 app.use('/services', serviceRouter);
 app.use('/appointment', appointmentRouter);
-app.use('/specialization', orderRouter);
+app.use('/clientsaccount', orderRouter);
 app.use('/payment', paymentRouter);
 app.use('/recovery', passwordRouter)
 

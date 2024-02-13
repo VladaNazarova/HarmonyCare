@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchDoctorsBySpecialization } from "../../redux/thunks";
@@ -7,9 +7,16 @@ type Params = {
   specialization: string;
 };
 
-export default function DoctorOnAppointment(): JSX.Element {
+type DoctorOnAppointmentProps = {
+  onSelectDoctor: (id: string | null) => void;
+  selectedDoctorId: string | null;
+};
+
+export default function DoctorOnAppointment({
+  onSelectDoctor,
+  selectedDoctorId,
+}: DoctorOnAppointmentProps): JSX.Element {
   const { specialization } = useParams<Params>();
-  const [selectedDoctorId, setSelectedDoctorId] = useState<string | null>(null);
   const dispatch = useAppDispatch();
   const doctorsSpec = useAppSelector((state) => state.doctorSlice.doctors);
 
@@ -19,13 +26,11 @@ export default function DoctorOnAppointment(): JSX.Element {
     }
   }, [specialization, dispatch]);
 
-  function handleChange(id: string) {
-    setSelectedDoctorId(id === selectedDoctorId ? null : id);
+  function handleChange(doctor_id: string) {
+    onSelectDoctor(doctor_id === selectedDoctorId ? null : doctor_id);
   }
-
   return (
     <div className="w-full lg:w-6/6 pr-4">
-      
       <h2 className="text-2xl font-bold mb-8 text-center">
         Doctors Specialized in: {specialization}
       </h2>
@@ -53,8 +58,8 @@ export default function DoctorOnAppointment(): JSX.Element {
               <input
                 type="checkbox"
                 className="form-checkbox h-5 w-5 text-blue-600 rounded"
-                checked={selectedDoctorId === doctor.id.toString()}
-                onChange={() => handleChange(doctor.id.toString())}
+                checked={selectedDoctorId === doctor.doctor_id.toString()}
+                onChange={() => handleChange(doctor.doctor_id.toString())}
               />
             </label>
           </div>

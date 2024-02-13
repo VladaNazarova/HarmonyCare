@@ -5,6 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       this.hasOne(models.PatientCard, { foreignKey: 'user_id' });
        this.hasMany(models.Order, { foreignKey: 'user_id' });
+       this.hasMany(models.Order, { foreignKey: 'doctor_id' });
     }
   }
   User.init(
@@ -14,9 +15,6 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
       phone_number: {
         type: DataTypes.STRING,
-        // validate: {
-        //   is: /^\+\d{1,3}\d{5,14}(?:x\d{1,5})?$/,
-        // }
       },
       role: {
         type: DataTypes.ENUM('patient', 'doctor', 'admin'),

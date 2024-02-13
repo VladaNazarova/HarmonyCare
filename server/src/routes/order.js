@@ -1,17 +1,21 @@
 const orderRouter = require('express').Router();
-const { Order } = require('../../db/models');
+const { Order, User } = require('../../db/models');
 
 orderRouter.post('/', async (req, res) => {
+  const { email } = req.session;
+
   try {
-    const { order_name, service_type, user_id, date, time } = req.body;
+    const user = await User.findOne({ where: { email } });
+
+    const { doctor_id, date, time } = req.body;
     const newOrder = await Order.create({
-      order_name,
-      service_type,
-      user_id,
+      user_id: user.id,
+      doctor_id,
       date,
       time
     });
-
+    console.log(newOrder, 'newOrder');
+    console.log(req.body);
     res.status(201).json(newOrder);
   } catch (error) {
     console.error(error);
@@ -19,4 +23,13 @@ orderRouter.post('/', async (req, res) => {
   }
 });
 
+orderRouter.get('/', async (req, res) => {
+  try {
+    const orders = await Order.findAll();
+    console.log(orders, 'ordersSSSSSSSSSSSS');
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 module.exports = orderRouter;

@@ -1,15 +1,56 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useAppDispatch } from "../../redux/hooks";
+import { fetchAddOrder } from "../../redux/thunks";
+import { useNavigate } from "react-router-dom";
 
-export default function Calendar() {
+type CalendarProps = {
+  selectedDoctorId: string | null;
+};
+
+export default function Calendar({ selectedDoctorId }: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    navigate("/clientsaccount");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(selectedDate, selectedTime);
+    if (!selectedDate || !selectedTime) {
+      console.log("Date or time is not selected");
+      return;
+    }
+
+    const formattedDate = selectedDate.toISOString().slice(0, 10);
+
+    const orderData = {
+      date: formattedDate,
+      time: selectedTime,
+      doctor_id: selectedDoctorId,
+    };
+
+    dispatch(
+      fetchAddOrder({
+        data: orderData,
+        specialization: "PPP",
+      })
+    ).then(() => {
+      handleOpenModal();
+    });
   };
 
   return (
@@ -57,6 +98,62 @@ export default function Calendar() {
           Sign up
         </button>
       </form>
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+          id="my-modal"
+        >
+          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div className="mt-3 text-center">
+              <h3 className="text-lg leading-6 font-medium text-gray-900">
+                Success
+              </h3>
+              <div className="mt-2 px-7 py-3">
+                <p className="text-sm text-gray-500">
+                  Your appointment has been successfully scheduled!
+                </p>
+              </div>
+              <div className="items-center px-4 py-3">
+                <button
+                  id="ok-btn"
+                  onClick={handleCloseModal}
+                  className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  OK
+                </button>
+                {isModalOpen && (
+                  <div
+                    className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+                    id="my-modal"
+                  >
+                    <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+                      <div className="mt-3 text-center">
+                        <h3 className="text-lg leading-6 font-medium text-gray-900">
+                          Success
+                        </h3>
+                        <div className="mt-2 px-7 py-3">
+                          <p className="text-sm text-gray-500">
+                            Registration was successful
+                          </p>
+                        </div>
+                        <div className="items-center px-4 py-3">
+                          <button
+                            id="ok-btn"
+                            onClick={handleCloseModal}
+                            className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          >
+                            Go to your personal account
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
