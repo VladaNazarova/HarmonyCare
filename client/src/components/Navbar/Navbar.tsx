@@ -17,7 +17,9 @@ export default function Navbar() {
   
   useEffect(() => {
     dispatch(fetchCheckUserSession());
-    dispatch(fetchCheckRole());
+    if (isAuthenticated) {
+      dispatch(fetchCheckRole());
+    }
   }, [dispatch, isAuthenticated]);
 
   const handleLogout = (e: React.MouseEvent<HTMLAnchorElement>) => {
