@@ -22,6 +22,7 @@ userRouter.get('/role', async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
+    // console.log(email);
     const role = user.role;
     res.json({ role });
   } catch (error) {
