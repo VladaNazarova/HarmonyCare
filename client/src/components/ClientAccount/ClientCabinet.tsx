@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchTakeOrder } from "../../redux/thunks";
+import PayButton from "../Payment/PayButton";
 
 export default function ClientCabinet() {
   const orders = useAppSelector((state) => state.order.orders);
@@ -40,6 +41,9 @@ export default function ClientCabinet() {
           <p className="text-lg text-gray-700 font-semibold">
             Врач: <span className="font-normal">{order.doctor_id}</span>
           </p>
+          <>
+            <PayButton />
+          </>
         </div>
       ))}
     </div>
