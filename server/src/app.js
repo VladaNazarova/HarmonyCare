@@ -27,6 +27,7 @@ const accountRouter = require('./routes/doctor')
 const serviceRouter = require('./routes/service.router')
 const appointmentRouter = require('./routes/appointment')
 const orderRouter = require("./routes/order")
+const paymentRouter = require('./routes/payment');
 
 
 const PORT = process.env.PORT;
@@ -49,6 +50,7 @@ app.use('/api', userRouter)
 app.use('/services', serviceRouter);
 app.use('/appointment', appointmentRouter);
 app.use('/specialization', orderRouter);
+app.use('/payment', paymentRouter);
 
 app.listen(PORT, () => {
   console.log(`Сервер запущен на ${PORT} порту`);

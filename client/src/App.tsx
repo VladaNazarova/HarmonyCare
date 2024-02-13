@@ -10,6 +10,7 @@ import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
 import Appointment from "./components/Appointment/Appointment";
 
+import PayButton from "./components/Payment/PayButton";
 
 function App() {
   return (
@@ -23,11 +24,16 @@ function App() {
           <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
           <Route path="/usercreation" element={<ClientCreation />}></Route>
+
+          <Route path="/payment" element={<PayButton />}></Route>
+
           <Route path="/:name" element={<Services />}></Route>
           <Route
             path="/appointment/:specialization"
             element={<Appointment />}
           ></Route>
+
+          <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
       </div>
     </>
