@@ -3,6 +3,8 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { userType } from "../../types/types";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchAddUser } from "../../redux/thunks";
+import InputMask from "react-input-mask";
+import ErrorModal from "../Modal/Modal";
 
 export default function Registration() {
   const [reg, setReg] = useState<userType>({
@@ -11,8 +13,10 @@ export default function Registration() {
     password: "",
     phone_number: "",
   });
+  const [error, setError] = useState<string>("");
+  console.log(error)
   const navigate: NavigateFunction = useNavigate();
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setReg({ ...reg, [e.target.name]: e.target.value });
@@ -20,9 +24,23 @@ export default function Registration() {
 
   const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(fetchAddUser(reg)).then(() => {
-      navigate("/");
-    });
+    dispatch(fetchAddUser(reg))
+      .unwrap()
+      .then((action) => {
+        if (action.error) {
+          setError(action.error);
+        } else {
+          navigate("/");
+        }
+      })
+      .catch(() => {
+        setError("An error occurred while registering.");
+      });
+  };
+  
+
+  const closeModal = () => {
+    setError("");
   };
 
   return (
@@ -40,6 +58,7 @@ export default function Registration() {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form onSubmit={handleRegister} className="space-y-6">
+          {error && <ErrorModal error={error} onClose={closeModal} />}
           <div>
             <label
               htmlFor="email"
@@ -54,6 +73,7 @@ export default function Registration() {
                 name="email"
                 type="email"
                 autoComplete="email"
+                placeholder="1@1.COM"
                 required
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -86,12 +106,15 @@ export default function Registration() {
               Phone number
             </label>
             <div className="mt-2">
-              <input
+              <InputMask
+                mask="+999999999999"
+                maskChar=" "
                 onChange={handleChange}
                 value={reg.phone_number}
                 name="phone_number"
                 type="text"
                 autoComplete="phone_number"
+                placeholder="+XX (XXX) XXX-XXXX"
                 required
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
