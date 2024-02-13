@@ -13,6 +13,7 @@ module.exports = {
         logo: 'https://i.pinimg.com/564x/5b/4c/4e/5b4c4e201804705533a1d4dca155dfca.jpg',
         promo:
           'A personalized approach to each patient. A team of experienced cardiologists will conduct examinations with the most advanced equipment.',
+        img: 'https://di-center.ru/upload/files/%D0%9A%D0%B0%D1%80%D0%B4%D0%B8%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -22,6 +23,7 @@ module.exports = {
           'Our dietetics service offers personalized nutrition plans for patients with various conditions, as well as those looking to improve their health through proper nutrition. Our team of qualified dietitians provides individual consultations, develops dietary recommendations, and helps patients establish healthy eating habits. We take into account the specific needs of patients and their conditions to help them achieve their goals in healthy eating.',
         logo: 'https://i.pinimg.com/564x/6f/e4/53/6fe4530735f9e88055c55127f2a98e55.jpg',
         promo: 'Extensive experience in modern dietetics and hundreds of happy patients.',
+        img: 'https://familydoctor.ru/upload/medialibrary/7c0/vv56outam85irx3sz6fi8tiyy99vj7pt/dietolog.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -34,7 +36,9 @@ module.exports = {
           `At Clinic Name, we understand that surgery can be a significant event in a person's life. That's why we are committed to providing compassionate care and comprehensive support throughout the entire surgical process. Our goal is to not only treat the immediate surgical needs but also to enhance the overall well-being and quality of life for our patients.\n\n` +
           `Whether you're coming in for a routine procedure or something more complex, you can have confidence in the expertise and dedication of our Surgery Service team at Clinic Name.`,
         logo: 'https://i.pinimg.com/564x/19/4f/5e/194f5ea1bdbcf418cd97aacb7e3bea4e.jpg',
+
         promo: 'Qualified Specialists',
+        img: 'https://centr-hirurgii-spb.ru/images/article/konsultatsiya-khirurga1.webp',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -55,6 +59,7 @@ We understand that parenting comes with many questions and concerns. Our team is
 Whether your visit is for a routine check-up, vaccination, or a concern about your child's health, we are committed to providing the highest standard of pediatric care. Our goal is to be a trusted resource for your family throughout your child's formative years, ensuring they have the best start in life.`,
         promo: 'With care for your little one',
         logo: 'https://i.pinimg.com/564x/c8/d7/3e/c8d73ed58c10331fe1329a93f648559e.jpg',
+        img: 'https://lh3.googleusercontent.com/proxy/UnEJ1CZCRzHrkaKFQ_OxIzljJmiu2WNm9AKk5rw2b0PiP3rsmGJ_Ix7MINDOL70cpKXm3dqLAfH2MNU-LY70op6VhFSrw-_F',
         createdAt: new Date(),
         updatedAt: new Date()
       }

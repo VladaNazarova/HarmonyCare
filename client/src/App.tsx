@@ -8,6 +8,8 @@ import DoctorCabinet from "./components/Cabinet/DoctorCabinet";
 import Services from "./components/Services/Services";
 import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
+import Appointment from "./components/Appointment/Appointment";
+
 import PayButton from "./components/Payment/PayButton";
 import About from "./components/About/About";
 
@@ -22,9 +24,17 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
-          <Route path="/payment" element={<PayButton />}></Route>
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
           <Route path="/usercreation" element={<ClientCreation />}></Route>
+
+          <Route path="/payment" element={<PayButton />}></Route>
+
+          <Route path="/:name" element={<Services />}></Route>
+          <Route
+            path="/appointment/:specialization"
+            element={<Appointment />}
+          ></Route>
+
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
       </div>

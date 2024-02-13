@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ServiceTypes } from "../types/types";
+import type { ServiceTypes, UserType } from "../types/types";
 import { fetchPageService } from "./thunks";
 
 const initialState = {
   service: null as ServiceTypes | null,
+  specialist: null as UserType | null,
   isLoading: true,
   error: null as string | null,
 };
