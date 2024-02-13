@@ -122,7 +122,7 @@ export const fetchAddOrder = createAsyncThunk(
 
 export const fetchTakeOrder = createAsyncThunk("order/take", async () => {
   const response: AxiosResponse = await axios.get<OrdersTypeArr>(
-    `${import.meta.env.VITE_URL}/clientsaccount`
+    `${import.meta.env.VITE_URL}/clientsaccount`,  { withCredentials: true }
   );
   return response.data;
 });

@@ -1,20 +1,22 @@
 import { useEffect } from "react";
 import { Link, NavigateFunction, Outlet, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { fetchCheckUserSession, fetchCheckRole, fetchLogoutUser } from "../../redux/thunks";
+import {
+  fetchCheckUserSession,
+  fetchCheckRole,
+  fetchLogoutUser,
+} from "../../redux/thunks";
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
-  
+
   const isAuthenticated = useAppSelector(
     (store) => store.userSlice.authUser.user
   );
-  
-  const role = useAppSelector(
-    (store) => store.userSlice.roleUser.role
-  );
-  
+
+  const role = useAppSelector((store) => store.userSlice.roleUser.role);
+
   useEffect(() => {
     dispatch(fetchCheckUserSession());
     if (isAuthenticated) {
@@ -30,14 +32,21 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-blue-700 py-4 fixed top-0 w-full z-10" style={{opacity:"0.85"}}>
+    <div
+      className="bg-blue-700 py-4 fixed top-0 w-full z-10"
+      style={{ opacity: "0.85" }}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-white text-lg font-bold flex items-center justify-between">
+          <a href="/">
           <img
             className="mx-auto h-12 w-auto"
             src="./src/assets/Logo without .png"
             alt="HarmonyCare Logo"
+            
           />
+          </a>
+
           HarmonyCare Medical Center
         </div>
         <nav className="space-x-4">
@@ -69,6 +78,12 @@ export default function Navbar() {
                   >
                     Create account
                   </Link>
+                  <Link
+                    to="/about"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    About us
+                  </Link>
                 </>
               )}
               {role === "patient" && (
@@ -84,6 +99,12 @@ export default function Navbar() {
                     className="text-white hover:text-gray-300 transition duration-300"
                   >
                     Clients account
+                  </Link>
+                  <Link
+                    to="/about"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    About us
                   </Link>
                 </>
               )}
@@ -101,6 +122,12 @@ export default function Navbar() {
                   >
                     Doctors account
                   </Link>
+                  <Link
+                    to="/about"
+                    className="text-white hover:text-gray-300 transition duration-300"
+                  >
+                    About us
+                  </Link>
                 </>
               )}
               <Link
@@ -114,6 +141,18 @@ export default function Navbar() {
           ) : (
             <>
               <Link
+                to="/"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                Home
+              </Link>
+              <Link
+                to="/about"
+                className="text-white hover:text-gray-300 transition duration-300"
+              >
+                About us
+              </Link>
+              <Link
                 to="/register"
                 className="text-white hover:text-gray-300 transition duration-300"
               >
@@ -125,6 +164,7 @@ export default function Navbar() {
               >
                 Login
               </Link>
+
             </>
           )}
           <Outlet />
