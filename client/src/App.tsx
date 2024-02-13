@@ -9,6 +9,7 @@ import Services from "./components/Services/Services";
 import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
 import PayButton from "./components/Payment/PayButton";
+import About from "./components/About/About";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/register" element={<Registration />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="about" element={<About />}></Route>
           <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
           <Route path="/payment" element={<PayButton />}></Route>
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
