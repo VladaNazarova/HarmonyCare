@@ -20,6 +20,7 @@ export default function PayButton() {
       method: "POST",
       headers,
       body: JSON.stringify(body),
+      credentials: "include",
     })
       .then((response) => {
         console.log("🚀 ~ makePayment ~ response:", response);

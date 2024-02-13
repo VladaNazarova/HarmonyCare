@@ -11,6 +11,10 @@ import ClientCreation from "./components/UserCreation/ClientCreation";
 import Appointment from "./components/Appointment/Appointment";
 
 import PayButton from "./components/Payment/PayButton";
+import EnterMail from "./components/Password/EnterMail";
+import UpdatePassword from "./components/Password/UpdatePassword";
+import About from "./components/About/About";
+
 
 function App() {
   return (
@@ -21,13 +25,14 @@ function App() {
           <Route path="/" element={<Main />}></Route>
           <Route path="/register" element={<Registration />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="about" element={<About />}></Route>
           <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
           <Route path="/usercreation" element={<ClientCreation />}></Route>
-
           <Route path="/payment" element={<PayButton />}></Route>
-
           <Route path="/:name" element={<Services />}></Route>
+          <Route path="/forgotpassword" element={<EnterMail/>}></Route>
+          <Route path="/resetpassword/:token" element={<UpdatePassword/>}></Route>
           <Route
             path="/appointment/:specialization"
             element={<Appointment />}

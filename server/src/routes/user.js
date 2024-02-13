@@ -24,8 +24,6 @@ userRouter.get('/role', async (req, res) => {
     }
     // console.log(email);
     const role = user.role;
-    // console.log(role, 'role');
-    // console.log(user);
     res.json({ role });
   } catch (error) {
     console.error('Error fetching user role:', error);
@@ -38,11 +36,10 @@ userRouter.post('/register', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email } });
     if (user) {
-      res.json({ err: 'User is already exists' });
+      res.json({ error: 'User is already exists' });
     } else {
       const hash = await bcrypt.hash(password, 10);
       const newUser = await User.create({ role, email, login, phone_number, password: hash });
-      // console.log(newUser);
       req.session.email = newUser.email;
       console.log(req.session.email);
       req.session.save(() => {
@@ -63,7 +60,7 @@ userRouter.post('/registerDoc', fileMiddleWare.single('img'), async (req, res) =
       console.log('File exists')
       const user = await User.findOne({ where: { email } });
       if (user) {
-        return res.json({ err: 'User is already exists' });
+        return res.json({ error: 'User is already exists' });
       }
       const hash = await bcrypt.hash(password, 10);
       const docUser = await User.create({
@@ -105,14 +102,14 @@ userRouter.post('/login', async (req, res) => {
         });
         console.log("🚀 ~ req.session.save ~ session:", req.session)
       } else {
-        res.json({ err: 'Incorrect password' });
+        res.json({ error: 'Incorrect password' });
       }
     } else {
-      res.json({ err: 'Such user not found' });
+      res.json({ error: 'Such user not found' });
     }
   } catch (error) {
     console.log(error);
-    res.json({ err: 'Authorization error' });
+    res.json({ error: 'Authorization error' });
   }
 });
 
