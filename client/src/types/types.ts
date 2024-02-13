@@ -36,6 +36,7 @@ export type userType = {
 };
 
 export type userLoggedType = {
+  error: any;
   email: string;
   password: string;
 };
