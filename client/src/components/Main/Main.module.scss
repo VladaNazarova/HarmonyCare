@@ -1,0 +1,32 @@
+.mostVServ {
+  @apply text-xl font-bold text-center pt-6 pb-4;
+}
+.cardsBlock {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4;
+
+  .key {
+    @apply flex flex-col justify-between bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 m-4;
+  }
+  .headText {
+    @apply p-8;
+  }
+  .seName {
+    @apply text-2xl font-semibold text-center mb-3;
+  }
+  .promo {
+    @apply my-4 p-4 bg-blue-100 rounded-md mx-8;
+  }
+  .promoText {
+    @apply text-lg font-medium text-blue-900 text-center;
+  }
+  .divButton {
+    @apply bg-gradient-to-r from-purple-500 to-purple-700 p-3;
+  }
+  .buttonText {
+    @apply w-full text-white font-semibold;
+  }
+}
+
+.shlyapa {
+  @apply max-w-xs mx-auto
+}
