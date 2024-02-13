@@ -9,11 +9,15 @@ serviceRouter.get('/', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-serviceRouter.get('/:id', async (req, res) => {
+
+serviceRouter.get('/:name', async (req, res) => {
   try {
-    const serviceId = await Service.findByPk(req.params.id);
-    if (serviceId) {
-      res.json(serviceId);
+    const { name } = req.params;
+      const service = await Service.findOne({ where: { name } });
+    
+
+    if (service) {
+      res.json(service);
     } else {
       res.status(404).json({ message: 'Service not found' });
     }
@@ -21,6 +25,5 @@ serviceRouter.get('/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-
 
 module.exports = serviceRouter;

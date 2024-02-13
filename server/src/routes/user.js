@@ -22,8 +22,10 @@ userRouter.get('/role', async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
+    // console.log(email);
     const role = user.role;
-    console.log(role, 'role');
+    // console.log(role, 'role');
+    // console.log(user);
     res.json({ role });
   } catch (error) {
     console.error('Error fetching user role:', error);
@@ -40,7 +42,7 @@ userRouter.post('/register', async (req, res) => {
     } else {
       const hash = await bcrypt.hash(password, 10);
       const newUser = await User.create({ role, email, login, phone_number, password: hash });
-      console.log(newUser);
+      // console.log(newUser);
       req.session.email = newUser.email;
       console.log(req.session.email);
       req.session.save(() => {
