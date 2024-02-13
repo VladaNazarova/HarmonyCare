@@ -1,15 +1,48 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useAppDispatch } from "../../redux/hooks";
+import { fetchAddOrder } from "../../redux/thunks";
 
-export default function Calendar() {
+type DoctorOnAppointmentProps = {
+  onSelectDoctor: (id: string | null) => void; 
+  selectedDoctorId: string | null; 
+};
+
+
+export default function Calendar({selectedDoctorId}): DoctorOnAppointmentProps {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState("");
+  const [selectedService, setSelectedService] = useState("");
+console.log(selectedDoctorId, "selectedDoctorId Календарь");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(selectedDate, selectedTime);
+    if (!selectedDate || !selectedTime) {
+      console.log("Date or time is not selected");
+      return;
+    }
+
+    const formattedDate = selectedDate.toISOString().slice(0, 10);
+console.log(formattedDate, "formattedDate Календарь");
+
+    const orderData = {
+      date: formattedDate,
+      time: selectedTime,
+      service_type: selectedService,
+      doctor_id: selectedDoctorId
+    };
+console.log(orderData, "orderData");
+
+    dispatch(
+      fetchAddOrder({
+        data: orderData,
+        specialization: "PPP",
+      })
+    );
   };
 
   return (

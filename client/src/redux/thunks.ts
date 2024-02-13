@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import type { AxiosResponse } from "axios";
@@ -96,7 +97,7 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
       `${import.meta.env.VITE_URL}/appointment/${specialization}`,
       { withCredentials: true }
     );
-    console.log(response);
+    console.log(response.data, 'QQQQQQQQ');
 
     return response.data;
   }
@@ -104,24 +105,15 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
 
 export const fetchAddOrder = createAsyncThunk(
   "order/add",
-  async (
-    { data, specialization }: { data: any; specialization: string },
-    { rejectWithValue }
-  ) => {
-    try {
-      const response: AxiosResponse = await axios.post(
-        `${import.meta.env.VITE_URL}/${
-          import.meta.env.VITE_API
-        }/${specialization}`,
-        data,
-        { headers: { "Content-Type": "multipart/form-data" } }
-      );
-      return response.data;
-    } catch (err) {
-      if (axios.isAxiosError(err) && err.response) {
-        return rejectWithValue(err.response.data);
-      }
-      return rejectWithValue(err.message);
-    }
+  async ({ data }: { data: any; specialization: string }) => {
+    console.log(data, "fetchAddOrder");
+    
+    const response: AxiosResponse = await axios.post(
+      `${import.meta.env.VITE_URL}/clientsaccount`,
+      data,  { withCredentials: true } 
+    );
+    console.log(response.data, "response fetchAddOrder");
+    
+    return response.data;
   }
 );

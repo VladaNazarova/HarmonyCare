@@ -49,7 +49,7 @@ app.use('/doctorsaccount', accountRouter);
 app.use('/api', userRouter)
 app.use('/services', serviceRouter);
 app.use('/appointment', appointmentRouter);
-app.use('/specialization', orderRouter);
+app.use('/clientsaccount', orderRouter);
 app.use('/payment', paymentRouter);
 
 app.listen(PORT, () => {

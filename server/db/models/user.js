@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       password: DataTypes.STRING,
       phone_number: {
         type: DataTypes.STRING,
-        // validate: {
-        //   is: /^\+\d{1,3}\d{5,14}(?:x\d{1,5})?$/,
-        // }
       },
       role: {
         type: DataTypes.ENUM('patient', 'doctor', 'admin'),

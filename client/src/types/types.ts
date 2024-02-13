@@ -109,8 +109,8 @@ export type OrderType = {
   order_name: string;
   service_type: string;
   user_id: number;
-  date: string;
-  time: string;
+  date: Date;
+  time: Date;
   doctor_id: number;
   createdAt: Date;
   updatedAt: Date;
