@@ -5,7 +5,7 @@ import { fetchCheckUserSession } from "../../redux/thunks";
 import Calendar from "../Calendar/Calendar";
 import DoctorOnAppointment from "../DoctorOnAppoint/DoctorOnAppointment";
 
-export default function Appointment(): JSX.Element {
+export default function Appointment(){
   const [selectedDoctorId, setSelectedDoctorId] = useState<string | null>(null); 
   const dispatch = useAppDispatch();
 

@@ -1,7 +1,7 @@
 import { createSlice} from "@reduxjs/toolkit";
 
 import { OrderType } from "../types/types";
-import { fetchAddOrder } from "./thunks";
+import { fetchAddOrder, fetchTakeOrder } from "./thunks";
 
 export type OrderSliceType = {
   orders: OrderType[];
@@ -18,19 +18,21 @@ const orderSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    
-    builder.addCase(fetchAddOrder.pending, (state) => {
-      console.log("PENDING");
-      state.isLoading = true;
-    })
+    builder
+      .addCase(fetchAddOrder.pending, (state) => {
+        console.log("PENDING");
+        state.isLoading = true;
+      })
       .addCase(fetchAddOrder.fulfilled, (state, action) => {
         state.orders.push(action.payload);
         state.isLoading = false;
+        console.log(state.orders, "state.ordersARR");
       })
-    
+      .addCase(fetchTakeOrder.fulfilled, (state, action) =>{
+        state.orders = action.payload
+        state.isLoading = false;
+        
+      });
   },
 });
 export default orderSlice.reducer;
-  // .addCase(fetchAddOrder.rejected, (state) => {
-        
-      // });

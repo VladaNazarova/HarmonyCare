@@ -1,7 +1,47 @@
-import React from 'react'
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { fetchTakeOrder } from "../../redux/thunks";
 
 export default function ClientCabinet() {
+  const orders = useAppSelector((state) => state.order.orders);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(fetchTakeOrder());
+  }, [dispatch]);
+
+  const goBack = () => {
+    navigate("/");
+  };
+
   return (
-    <div>ClientCabinet</div>
-  )
+    <div className="p-4 max-w-md mx-auto">
+      <button
+        onClick={goBack}
+        className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Назад
+      </button>
+
+      {orders.map((order, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-lg shadow-lg p-6 mb-4
+                     transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
+        >
+          <p className="text-lg text-gray-700 font-semibold mb-2">
+            Дата приема: <span className="font-normal">{order.date}</span>
+          </p>
+          <p className="text-lg text-gray-700 font-semibold mb-2">
+            Время приема: <span className="font-normal">{order.time}</span>
+          </p>
+          <p className="text-lg text-gray-700 font-semibold">
+            Врач: <span className="font-normal">{order.doctor_id}</span>
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }

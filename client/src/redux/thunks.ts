@@ -7,6 +7,7 @@ import {
   ServicesType,
   userType,
   userLoggedType,
+  OrdersTypeArr,
 } from "../types/types";
 
 export const fetchAddUser = createAsyncThunk(
@@ -97,7 +98,6 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
       `${import.meta.env.VITE_URL}/appointment/${specialization}`,
       { withCredentials: true }
     );
-    console.log(response.data, 'QQQQQQQQ');
 
     return response.data;
   }
@@ -106,14 +106,19 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
 export const fetchAddOrder = createAsyncThunk(
   "order/add",
   async ({ data }: { data: any; specialization: string }) => {
-    console.log(data, "fetchAddOrder");
-    
     const response: AxiosResponse = await axios.post(
       `${import.meta.env.VITE_URL}/clientsaccount`,
-      data,  { withCredentials: true } 
+      data,
+      { withCredentials: true }
     );
-    console.log(response.data, "response fetchAddOrder");
-    
+    console.log(data, "На add");
     return response.data;
   }
 );
+
+export const fetchTakeOrder = createAsyncThunk("order/take", async () => {
+  const response: AxiosResponse = await axios.get<OrdersTypeArr>(
+    `${import.meta.env.VITE_URL}/clientsaccount`
+  );
+  return response.data;
+});

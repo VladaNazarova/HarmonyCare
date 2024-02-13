@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect} from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPageService } from "../../redux/thunks";
 
@@ -9,6 +9,7 @@ type Params = {
 };
 
 const Services = () => {
+
   const { name } = useParams<Params>();
   const dispatch = useAppDispatch();
   const serv = useAppSelector((state) => state.servPage.service);

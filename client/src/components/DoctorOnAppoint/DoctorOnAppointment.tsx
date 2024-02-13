@@ -19,7 +19,6 @@ export default function DoctorOnAppointment({
   const { specialization } = useParams<Params>();
   const dispatch = useAppDispatch();
   const doctorsSpec = useAppSelector((state) => state.doctorSlice.doctors);
-  console.log(specialization, "Rjycjkm");
 
   useEffect(() => {
     if (specialization) {
@@ -28,16 +27,8 @@ export default function DoctorOnAppointment({
   }, [specialization, dispatch]);
 
   function handleChange(doctor_id: string) {
-    console.log(doctor_id, "function handleChange(doctor_id: string)");
-    console.log(
-      selectedDoctorId,
-      "onSelectDocto "
-    );
-
     onSelectDoctor(doctor_id === selectedDoctorId ? null : doctor_id);
   }
-  console.log(doctorsSpec, "doctorsSpec");
-
   return (
     <div className="w-full lg:w-6/6 pr-4">
       <h2 className="text-2xl font-bold mb-8 text-center">
