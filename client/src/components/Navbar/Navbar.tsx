@@ -188,7 +188,7 @@ export default function Navbar() {
           )}
           <button
             onClick={handleLanguageChange}
-            className="text-white hover:text-gray-300 transition duration-300"
+            className="text hover:text-white transition duration-300"
           >
             {isLanguageEnglish ? "Change language" : "Сменить язык"}
           </button>

@@ -4,8 +4,7 @@ require("dotenv").config()
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
 const storeItems = new Map([
-  [1, { priceInCents: 10000, name: "Learn React Today" }],
-  [2, { priceInCents: 20000, name: "Learn CSS Today" }],
+  [1, { priceInCents: 10000, name: "Consultation" }],
 ])
 
 router.post("/", async (req, res) => {
@@ -26,8 +25,8 @@ router.post("/", async (req, res) => {
           quantity: item.quantity,
         }
       }),
-      success_url: `${process.env.CLIENT}/success.html`,
-      cancel_url: `${process.env.CLIENT}/cancel.html`,
+      success_url: `${process.env.CLIENT}/clientsaccount`,
+      cancel_url: `${process.env.CLIENT}/clientsaccount`,
     })
     res.json({ url: session.url })
   } catch (e) {

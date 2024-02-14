@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import StripePayment from "./StripePayment";
+// import StripePayment from "./StripePayment";
 
 export default function PayButton() {
   const [product, setProduct] = useState({
@@ -43,7 +43,7 @@ export default function PayButton() {
           Pay
         </button>
       </StripeCheckout>
-      <StripePayment />
+      {/* <StripePayment /> */}
     </div>
   );
 }
