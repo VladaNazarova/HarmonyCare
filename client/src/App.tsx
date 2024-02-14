@@ -30,8 +30,10 @@ function App() {
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
           <Route path="/usercreation" element={<ClientCreation />}></Route>
           <Route path="/payment" element={<PayButton />}></Route>
-          <Route path="/:name" element={<Services />}></Route>
           <Route path="/forgotpassword" element={<EnterMail/>}></Route>
+          <Route path="/:name" element={<Services />}></Route>
+          
+          
           <Route path="/resetpassword/:token" element={<UpdatePassword/>}></Route>
           <Route
             path="/appointment/:specialization"

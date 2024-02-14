@@ -15,12 +15,10 @@ export default function Appointment(){
 
   
   const handleSelectDoctor = (id: string | null) => {
-    console.log(id, "handleSelectDoctor Выше");
+
     
     setSelectedDoctorId(id);
   };
-  
-console.log(selectedDoctorId, "selectedDoctorId Выше");
 
   return (
     <div className="flex container mx-auto py-8 ">

@@ -73,6 +73,7 @@ export type ServiceTypes = {
   name: string;
   description: string;
   promo: string;
+  price: string;
   logo: string;
   img: string;
 };
@@ -106,11 +107,11 @@ export type DoctorsSliceArr = {
 };
 
 export type OrderType = {
-  order_name: string;
   service_type: string;
   user_id: number;
   date: string;
   time: string;
+  status: boolean;
   doctor_id: number;
   createdAt: Date;
   updatedAt: Date;

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 
@@ -16,7 +17,7 @@ export default function PayButton() {
       "Content-Type": "application/json",
     };
 
-    return fetch(`http://localhost:9000/payment`, {
+    return fetch(`http://localhost:3000/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),

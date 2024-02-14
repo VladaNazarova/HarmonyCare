@@ -7,12 +7,11 @@ appointmentRouter.get('/:specialization', async (req, res) => {
     const doctors = await User.findAll({
       where: { specialization }
     });
-    console.log(specialization);
-    console.log(doctors);
+   
     res.json(doctors);
   } catch (error) {
     res.status(500).json({ error: error.message });
-    console.log(error, 'Что за ...???');
+    console.log(error);
   }
 });
 

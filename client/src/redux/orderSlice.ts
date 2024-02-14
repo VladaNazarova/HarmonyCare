@@ -1,7 +1,7 @@
 import { createSlice} from "@reduxjs/toolkit";
 
 import { OrderType } from "../types/types";
-import { fetchAddOrder, fetchTakeOrder } from "./thunks";
+import { fetchAddOrder, fetchTakeOrder, updateOrderStatus } from "./thunks";
 
 export type OrderSliceType = {
   orders: OrderType[];
@@ -28,10 +28,16 @@ const orderSlice = createSlice({
         state.isLoading = false;
         console.log(state.orders, "state.ordersARR");
       })
-      .addCase(fetchTakeOrder.fulfilled, (state, action) =>{
-        state.orders = action.payload
+      .addCase(updateOrderStatus.fulfilled, (state, action) => {
+        const { orderId, status } = action.payload;
+        const index = state.orders.findIndex((order) => order.id === orderId);
+        if (index !== -1) {
+          state.orders[index].status = status;
+        }
+      })
+      .addCase(fetchTakeOrder.fulfilled, (state, action) => {
+        state.orders = action.payload;
         state.isLoading = false;
-        
       });
   },
 });

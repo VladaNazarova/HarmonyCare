@@ -14,6 +14,7 @@ module.exports = {
         promo:
           'A personalized approach to each patient. A team of experienced cardiologists will conduct examinations with the most advanced equipment.',
         img: 'https://di-center.ru/upload/files/%D0%9A%D0%B0%D1%80%D0%B4%D0%B8%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F.jpg',
+        price: '100$',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -24,6 +25,7 @@ module.exports = {
         logo: 'https://i.pinimg.com/564x/6f/e4/53/6fe4530735f9e88055c55127f2a98e55.jpg',
         promo: 'Extensive experience in modern dietetics and hundreds of happy patients.',
         img: 'https://familydoctor.ru/upload/medialibrary/7c0/vv56outam85irx3sz6fi8tiyy99vj7pt/dietolog.jpg',
+        price: '100$',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -39,6 +41,7 @@ module.exports = {
 
         promo: 'Qualified Specialists',
         img: 'https://centr-hirurgii-spb.ru/images/article/konsultatsiya-khirurga1.webp',
+        price: '100$',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -60,6 +63,7 @@ Whether your visit is for a routine check-up, vaccination, or a concern about yo
         promo: 'With care for your little one',
         logo: 'https://i.pinimg.com/564x/c8/d7/3e/c8d73ed58c10331fe1329a93f648559e.jpg',
         img: 'https://lh3.googleusercontent.com/proxy/UnEJ1CZCRzHrkaKFQ_OxIzljJmiu2WNm9AKk5rw2b0PiP3rsmGJ_Ix7MINDOL70cpKXm3dqLAfH2MNU-LY70op6VhFSrw-_F',
+        price: '100$',
         createdAt: new Date(),
         updatedAt: new Date()
       }
