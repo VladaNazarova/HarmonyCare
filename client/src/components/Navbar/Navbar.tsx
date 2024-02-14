@@ -9,7 +9,6 @@ import {
 import "./Navbar.css";
 import { setLanguage } from "../../redux/languageSlice";
 
-
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
@@ -64,13 +63,12 @@ export default function Navbar() {
               src="./src/assets/Logo without .png"
               alt="HarmonyCare Logo"
             />
-            Harmony Care Medical Center
+            {isLanguageEnglish
+              ? "HarmonyCare Medical Center"
+              : "Медицинский центр HarmonyCare"}
           </div>
         </a>
-          {isLanguageEnglish
-            ? "HarmonyCare Medical Center"
-            : "Медицинский центр HarmonyCare"}
-        </div>
+
         <nav className="space-x-4">
           {isAuthenticated ? (
             <>
@@ -190,7 +188,7 @@ export default function Navbar() {
           )}
           <button
             onClick={handleLanguageChange}
-            className="text-white hover:text-gray-300 transition duration-300"
+            className="text hover:text-white transition duration-300"
           >
             {isLanguageEnglish ? "Change language" : "Сменить язык"}
           </button>
