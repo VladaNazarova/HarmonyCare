@@ -9,7 +9,6 @@ import {
 import "./Navbar.css";
 import { setLanguage } from "../../redux/languageSlice";
 
-
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
@@ -64,13 +63,12 @@ export default function Navbar() {
               src="./src/assets/Logo without .png"
               alt="HarmonyCare Logo"
             />
-            Harmony Care Medical Center
+            {isLanguageEnglish
+              ? "HarmonyCare Medical Center"
+              : "Медицинский центр HarmonyCare"}
           </div>
         </a>
-          {isLanguageEnglish
-            ? "HarmonyCare Medical Center"
-            : "Медицинский центр HarmonyCare"}
-        </div>
+
         <nav className="space-x-4">
           {isAuthenticated ? (
             <>
