@@ -23,7 +23,7 @@ export default function ClientCabinet() {
         onClick={goBack}
         className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-        Назад
+       Go back
       </button>
 
       {orders.map((order, index) => (
@@ -33,13 +33,13 @@ export default function ClientCabinet() {
                      transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
         >
           <p className="text-lg text-gray-700 font-semibold mb-2">
-            Дата приема: <span className="font-normal">{order.date}</span>
+            Appointment data: <span className="font-normal">{order.date}</span>
           </p>
           <p className="text-lg text-gray-700 font-semibold mb-2">
-            Время приема: <span className="font-normal">{order.time}</span>
+            Appointment time: <span className="font-normal">{order.time}</span>
           </p>
           <p className="text-lg text-gray-700 font-semibold">
-            Врач: <span className="font-normal">{order.doctor_id}</span>
+            Doctors name: <span className="font-normal">{order.doctor_id}</span>
           </p>
           <>
             <PayButton />
