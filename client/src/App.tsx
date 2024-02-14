@@ -14,7 +14,7 @@ import PayButton from "./components/Payment/PayButton";
 import EnterMail from "./components/Password/EnterMail";
 import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
-
+import NewsList from "./components/News/NewsList";
 
 function App() {
   return (
@@ -31,12 +31,16 @@ function App() {
           <Route path="/usercreation" element={<ClientCreation />}></Route>
           <Route path="/payment" element={<PayButton />}></Route>
           <Route path="/:name" element={<Services />}></Route>
-          <Route path="/forgotpassword" element={<EnterMail/>}></Route>
-          <Route path="/resetpassword/:token" element={<UpdatePassword/>}></Route>
+          <Route path="/forgotpassword" element={<EnterMail />}></Route>
+          <Route
+            path="/resetpassword/:token"
+            element={<UpdatePassword />}
+          ></Route>
           <Route
             path="/appointment/:specialization"
             element={<Appointment />}
           ></Route>
+          <Route path="/testnews" element={<NewsList articles={[]}/>}/>
 
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
