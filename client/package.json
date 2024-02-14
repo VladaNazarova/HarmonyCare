@@ -20,6 +20,7 @@
     "@vis.gl/react-google-maps": "^0.6.1",
     "axios": "^1.6.7",
     "dotenv": "^16.4.1",
+    "flowbite": "^2.2.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-datepicker": "^6.1.0",

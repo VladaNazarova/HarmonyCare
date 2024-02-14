@@ -1,6 +1,7 @@
 import { SetStateAction, useState } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
+import './Slider.css';
 
 export default function Slider() {
   const slides = [
@@ -38,7 +39,7 @@ export default function Slider() {
   };
 
   return (
-    <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-4 relative group">
+    <div className="max-w-[1400px] h-[780px] w-full m-auto py-16 px-3 relative group">
       <div
         style={{ backgroundImage: `url(${slides[current].url})` }}
         className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
@@ -58,7 +59,7 @@ export default function Slider() {
             onClick={() => dotGo(slideIndex)}
             className="text-2xl cursor-pointer"
           >
-            <RxDotFilled />
+            <RxDotFilled style={{color: "#164863"}} />
           </div>
         ))}
       </div>

@@ -6,7 +6,9 @@ import {
   fetchCheckRole,
   fetchLogoutUser,
 } from "../../redux/thunks";
+import "./Navbar.css";
 import { setLanguage } from "../../redux/languageSlice";
+
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
@@ -51,18 +53,20 @@ export default function Navbar() {
 
   return (
     <div
-      className="bg-blue-700 py-4 fixed top-0 w-full z-10"
+      className="py-4 fixed top-0 w-full z-10 navbar"
       style={{ opacity: "0.85" }}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg font-bold flex items-center justify-between">
-          <a href="/">
+        <a href="/">
+          <div className="text text-lg font-bold flex items-center justify-between logo-container">
             <img
               className="mx-auto h-12 w-auto"
               src="./src/assets/Logo without .png"
               alt="HarmonyCare Logo"
             />
-          </a>
+            Harmony Care Medical Center
+          </div>
+        </a>
           {isLanguageEnglish
             ? "HarmonyCare Medical Center"
             : "Медицинский центр HarmonyCare"}
@@ -74,31 +78,31 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Home" : "Главная"}
                   </Link>
                   <Link
                     to="/doctorsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Doctors account" : "Аккаунт врачей"}
                   </Link>
                   <Link
                     to="/clientsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Clients account" : "Аккаунт клиентов"}
                   </Link>
                   <Link
                     to="/usercreation"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Create account" : "Создать аккаунт"}
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "About us" : "О нас"}
                   </Link>
@@ -108,19 +112,19 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Home" : "Главная"}
                   </Link>
                   <Link
                     to="/clientsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Clients account" : "Аккаунт клиентов"}
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "About us" : "О нас"}
                   </Link>
@@ -130,19 +134,19 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Home" : "Главная"}
                   </Link>
                   <Link
                     to="/doctorsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Doctors account" : "Аккаунт врачей"}
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "About us" : "О нас"}
                   </Link>
@@ -151,7 +155,7 @@ export default function Navbar() {
               <Link
                 to="/logout"
                 onClick={handleLogout}
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "Logout" : "Выйти"}
               </Link>
@@ -160,25 +164,25 @@ export default function Navbar() {
             <>
               <Link
                 to="/"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "Home" : "Главная"}
               </Link>
               <Link
                 to="/about"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "About us" : "О нас"}
               </Link>
               <Link
                 to="/register"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "Register" : "Регистрация"}
               </Link>
               <Link
                 to="/login"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "Login" : "Войти"}
               </Link>

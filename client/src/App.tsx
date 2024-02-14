@@ -3,18 +3,19 @@ import "./App.css";
 import Registration from "./components/Auth/Registration";
 import Login from "./components/Auth/Login";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import DoctorCabinet from "./components/Cabinet/DoctorCabinet";
 import Services from "./components/Services/Services";
 import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
 import Appointment from "./components/Appointment/Appointment";
-
 import PayButton from "./components/Payment/PayButton";
 import EnterMail from "./components/Password/EnterMail";
 import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
 import NewsList from "./components/News/NewsList";
+
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
