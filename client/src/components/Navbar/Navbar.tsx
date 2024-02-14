@@ -6,6 +6,7 @@ import {
   fetchCheckRole,
   fetchLogoutUser,
 } from "../../redux/thunks";
+import "./Navbar.css";
 
 export default function Navbar() {
   const navigate: NavigateFunction = useNavigate();
@@ -33,22 +34,20 @@ export default function Navbar() {
 
   return (
     <div
-      className="bg-blue-700 py-4 fixed top-0 w-full z-10"
+      className="py-4 fixed top-0 w-full z-10 navbar"
       style={{ opacity: "0.85" }}
     >
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-lg font-bold flex items-center justify-between">
-          <a href="/">
-          <img
-            className="mx-auto h-12 w-auto"
-            src="./src/assets/Logo without .png"
-            alt="HarmonyCare Logo"
-            
-          />
-          </a>
-
-          HarmonyCare Medical Center
-        </div>
+        <a href="/">
+          <div className="text text-lg font-bold flex items-center justify-between logo-container">
+            <img
+              className="mx-auto h-12 w-auto"
+              src="./src/assets/Logo without .png"
+              alt="HarmonyCare Logo"
+            />
+            Harmony Care Medical Center
+          </div>
+        </a>
         <nav className="space-x-4">
           {isAuthenticated ? (
             <>
@@ -56,31 +55,31 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Home
                   </Link>
                   <Link
                     to="/doctorsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Doctors account
                   </Link>
                   <Link
                     to="/clientsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Clients account
                   </Link>
                   <Link
                     to="/usercreation"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Create account
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     About us
                   </Link>
@@ -90,19 +89,19 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Home
                   </Link>
                   <Link
                     to="/clientsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Clients account
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     About us
                   </Link>
@@ -112,19 +111,19 @@ export default function Navbar() {
                 <>
                   <Link
                     to="/"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Home
                   </Link>
                   <Link
                     to="/doctorsaccount"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     Doctors account
                   </Link>
                   <Link
                     to="/about"
-                    className="text-white hover:text-gray-300 transition duration-300"
+                    className="text hover:text-white transition duration-300"
                   >
                     About us
                   </Link>
@@ -133,7 +132,7 @@ export default function Navbar() {
               <Link
                 to="/logout"
                 onClick={handleLogout}
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 Logout
               </Link>
@@ -142,29 +141,28 @@ export default function Navbar() {
             <>
               <Link
                 to="/"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 Home
               </Link>
               <Link
                 to="/about"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 About us
               </Link>
               <Link
                 to="/register"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 Register
               </Link>
               <Link
                 to="/login"
-                className="text-white hover:text-gray-300 transition duration-300"
+                className="text hover:text-white transition duration-300"
               >
                 Login
               </Link>
-
             </>
           )}
           <Outlet />

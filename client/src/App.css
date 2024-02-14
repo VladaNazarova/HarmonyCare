@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
 
-body {
-  font-family: "DM Sans", sans-serif;
+* {
+  font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+}
+
+p, h2, span, a, label {
+  color: #164863;
+}
+
+button {
+  background-color: #164863;
 }
 
 /* #root {
@@ -49,4 +57,3 @@ body {
 .read-the-docs {
   color: #888;
 } */
-

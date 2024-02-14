@@ -3,18 +3,17 @@ import "./App.css";
 import Registration from "./components/Auth/Registration";
 import Login from "./components/Auth/Login";
 import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 import Main from "./components/Main/Main";
 import DoctorCabinet from "./components/Cabinet/DoctorCabinet";
 import Services from "./components/Services/Services";
 import ClientCabinet from "./components/ClientAccount/ClientCabinet";
 import ClientCreation from "./components/UserCreation/ClientCreation";
 import Appointment from "./components/Appointment/Appointment";
-
 import PayButton from "./components/Payment/PayButton";
 import EnterMail from "./components/Password/EnterMail";
 import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
-
 
 function App() {
   return (
@@ -31,8 +30,11 @@ function App() {
           <Route path="/usercreation" element={<ClientCreation />}></Route>
           <Route path="/payment" element={<PayButton />}></Route>
           <Route path="/:name" element={<Services />}></Route>
-          <Route path="/forgotpassword" element={<EnterMail/>}></Route>
-          <Route path="/resetpassword/:token" element={<UpdatePassword/>}></Route>
+          <Route path="/forgotpassword" element={<EnterMail />}></Route>
+          <Route
+            path="/resetpassword/:token"
+            element={<UpdatePassword />}
+          ></Route>
           <Route
             path="/appointment/:specialization"
             element={<Appointment />}
@@ -41,6 +43,7 @@ function App() {
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }
