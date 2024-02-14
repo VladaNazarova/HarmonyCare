@@ -120,3 +120,11 @@ export type OrdersTypeArr = Array<OrderType>;
 export type OrderSliceType = {
   orders: OrderType;
 };
+
+export type LanguageType = {
+  changeLanguage: boolean
+}
+
+export type LanguageSliceType = {
+  change: LanguageType
+}

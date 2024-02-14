@@ -14,6 +14,8 @@ import PayButton from "./components/Payment/PayButton";
 import EnterMail from "./components/Password/EnterMail";
 import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
+import NewsList from "./components/News/NewsList";
+
 
 function App() {
   return (
@@ -39,6 +41,7 @@ function App() {
             path="/appointment/:specialization"
             element={<Appointment />}
           ></Route>
+          <Route path="/testnews" element={<NewsList articles={[]}/>}/>
 
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
