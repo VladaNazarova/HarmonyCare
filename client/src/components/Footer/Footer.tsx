@@ -8,7 +8,7 @@ export default function Footer() {
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="./src/assets/Logo without .png"
+              src="./src/assets/justlogo.png"
               className="h-8"
               alt="Logo"
             />

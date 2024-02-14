@@ -60,7 +60,7 @@ export default function Navbar() {
           <div className="text text-lg font-bold flex items-center justify-between logo-container">
             <img
               className="mx-auto h-12 w-auto"
-              src="./src/assets/Logo without .png"
+              src="./src/assets/justlogo.png"
               alt="HarmonyCare Logo"
             />
             {isLanguageEnglish
