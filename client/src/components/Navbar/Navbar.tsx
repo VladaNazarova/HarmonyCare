@@ -104,6 +104,12 @@ export default function Navbar() {
                   >
                     {isLanguageEnglish ? "About us" : "О нас"}
                   </Link>
+                  <Link
+                to="/testnews"
+                className="text hover:text-white transition duration-300"
+              >
+                {isLanguageEnglish ? "News" : "Новости"}
+              </Link>
                 </>
               )}
               {role === "patient" && (
@@ -115,11 +121,18 @@ export default function Navbar() {
                     {isLanguageEnglish ? "Home" : "Главная"}
                   </Link>
                   <Link
+                to="/testnews"
+                className="text hover:text-white transition duration-300"
+              >
+                {isLanguageEnglish ? "News" : "Новости"}
+              </Link>
+                  <Link
                     to="/clientsaccount"
                     className="text hover:text-white transition duration-300"
                   >
                     {isLanguageEnglish ? "Clients account" : "Аккаунт клиентов"}
                   </Link>
+                  
                   <Link
                     to="/about"
                     className="text hover:text-white transition duration-300"
@@ -136,6 +149,12 @@ export default function Navbar() {
                   >
                     {isLanguageEnglish ? "Home" : "Главная"}
                   </Link>
+                  <Link
+                to="/testnews"
+                className="text hover:text-white transition duration-300"
+              >
+                {isLanguageEnglish ? "News" : "Новости"}
+              </Link>
                   <Link
                     to="/doctorsaccount"
                     className="text hover:text-white transition duration-300"
@@ -171,6 +190,12 @@ export default function Navbar() {
                 className="text hover:text-white transition duration-300"
               >
                 {isLanguageEnglish ? "About us" : "О нас"}
+              </Link>
+              <Link
+                to="/testnews"
+                className="text hover:text-white transition duration-300"
+              >
+                {isLanguageEnglish ? "News" : "Новости"}
               </Link>
               <Link
                 to="/register"
