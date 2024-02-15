@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type UserType = {
   id: number;
   email: string;
@@ -111,6 +112,7 @@ export type OrderType = {
   service_type: string;
   user_id: number;
   date: string;
+  
   time: string;
   status: boolean;
   doctor_id: number;

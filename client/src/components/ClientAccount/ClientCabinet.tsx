@@ -16,16 +16,14 @@ export default function ClientCabinet() {
   const goBack = () => {
     navigate("/");
   };
-
   return (
     <div className="p-4 max-w-md mx-auto">
       <button
         onClick={goBack}
         className="mb-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
-       Go back
+        Go back
       </button>
-
       {orders.map((order, index) => (
         <div
           key={index}
@@ -38,12 +36,20 @@ export default function ClientCabinet() {
           <p className="text-lg text-gray-700 font-semibold mb-2">
             Appointment time: <span className="font-normal">{order.time}</span>
           </p>
-          <p className="text-lg text-gray-700 font-semibold">
-            Doctors name: <span className="font-normal">{order.doctor_id}</span>
+          <p className="text-lg text-gray-700 font-semibold mb-2">
+            Service: <span className="font-normal">{order.service_type}</span>
           </p>
-          <>
-            <StripePayment />
-          </>
+          <p className="text-lg text-gray-700 font-semibold">
+            Doctor’s name:
+            <span className="font-normal"> {order.Doctor.login}</span>
+          </p>
+          {order.status ? (
+            <p className="rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white">
+              Оплачено
+            </p>
+          ) : (
+            <StripePayment order={order} />
+          )}
         </div>
       ))}
     </div>

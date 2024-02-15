@@ -129,9 +129,9 @@ export const fetchTakeOrder = createAsyncThunk("order/take", async () => {
 
 export const fetchOrderStatus = createAsyncThunk(
   "order/updateStatus",
-  async (clientsaccount) => {
+async (clientsaccount, data) => {
     const response = await axios.put(
-      `${import.meta.env.VITE_URL}/${clientsaccount}`,
+      `${import.meta.env.VITE_URL}/${clientsaccount}`, data ,
       {
         status: true,
       }

@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const userRouter = express.Router();
 const { User } = require('../../db/models');
-const fileMiddleWare = require('../middleware/file')
+const fileMiddleWare = require('../middleware/file');
 
 userRouter.get('/logout', (req, res) => {
   req.session.destroy(() => {
@@ -22,7 +22,6 @@ userRouter.get('/role', async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }
-    // console.log(email);
     const role = user.role;
     res.json({ role });
   } catch (error) {
@@ -52,12 +51,13 @@ userRouter.post('/register', async (req, res) => {
 });
 
 userRouter.post('/registerDoc', fileMiddleWare.single('img'), async (req, res) => {
-  const { email, login, phone_number, password, role, specialization, experience, doctor_id } = req.body;
+  const { email, login, phone_number, password, role, specialization, experience, doctor_id } =
+    req.body;
 
   try {
-    if(req.file) {
+    if (req.file) {
       const img = req.file.originalname;
-      console.log('File exists')
+      console.log('File exists');
       const user = await User.findOne({ where: { email } });
       if (user) {
         return res.json({ error: 'User is already exists' });
@@ -100,7 +100,7 @@ userRouter.post('/login', async (req, res) => {
             role: user.role
           });
         });
-        console.log("🚀 ~ req.session.save ~ session:", req.session)
+        console.log('🚀 ~ req.session.save ~ session:', req.session);
       } else {
         res.json({ error: 'Incorrect password' });
       }
