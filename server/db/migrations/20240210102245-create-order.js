@@ -9,11 +9,21 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      order_name: {
-        type: Sequelize.STRING
+      status: {
+        type: Sequelize.BOOLEAN
       },
       service_type: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        // allowNull: false
+      },
+      service_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Services',
+          key: 'id'
+        },
+        onDelete: 'cascade',
+        allowNull: false
       },
       user_id: {
         type: Sequelize.INTEGER,
