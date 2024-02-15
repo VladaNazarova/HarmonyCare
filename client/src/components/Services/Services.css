@@ -1,0 +1,18 @@
+.service-img {
+  width: 600px;
+  border-radius: 20px;
+}
+
+p {
+    width: 600px;
+}
+
+.btn {
+  background-color: #164863;
+
+  &:hover {
+    background-color: #1c5574;
+  }
+
+  width: 230px;
+}

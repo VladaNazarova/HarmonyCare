@@ -64,8 +64,8 @@ export default function Navbar() {
               alt="HarmonyCare Logo"
             />
             {isLanguageEnglish
-              ? "HarmonyCare Medical Center"
-              : "Медицинский центр HarmonyCare"}
+              ? "HARMONYCARE MEDICAL CENTER"
+              : "МЕДИЦИНСКИЙ ЦЕНТР HARMONYCARE"}
           </div>
         </a>
 
@@ -78,31 +78,31 @@ export default function Navbar() {
                     to="/"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Home" : "Главная"}
+                    {isLanguageEnglish ? "HOME" : "НА ГЛАВНУЮ"}
                   </Link>
                   <Link
                     to="/doctorsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Doctors account" : "Аккаунт врачей"}
+                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
                   </Link>
                   <Link
                     to="/clientsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Clients account" : "Аккаунт клиентов"}
+                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
                   </Link>
                   <Link
                     to="/usercreation"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Create account" : "Создать аккаунт"}
+                    {isLanguageEnglish ? "CREATE ACCOUNT" : "СОЗДАТЬ АККАУНТ"}
                   </Link>
                   <Link
                     to="/about"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "About us" : "О нас"}
+                    {isLanguageEnglish ? "ABOUT" : "О НАС"}
                   </Link>
                 </>
               )}
@@ -112,19 +112,19 @@ export default function Navbar() {
                     to="/"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Home" : "Главная"}
+                    {isLanguageEnglish ? "HOME" : "НА ГЛАВНУЮ"}
                   </Link>
                   <Link
                     to="/clientsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Clients account" : "Аккаунт клиентов"}
+                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
                   </Link>
                   <Link
                     to="/about"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "About us" : "О нас"}
+                    {isLanguageEnglish ? "ABOUT" : "О НАС"}
                   </Link>
                 </>
               )}
@@ -134,19 +134,19 @@ export default function Navbar() {
                     to="/"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Home" : "Главная"}
+                    {isLanguageEnglish ? "HOME" : "НА ГЛАВНУЮ"}
                   </Link>
                   <Link
                     to="/doctorsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "Doctors account" : "Аккаунт врачей"}
+                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
                   </Link>
                   <Link
                     to="/about"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "About us" : "О нас"}
+                    {isLanguageEnglish ? "ABOUT" : "О НАС"}
                   </Link>
                 </>
               )}
@@ -155,7 +155,7 @@ export default function Navbar() {
                 onClick={handleLogout}
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "Logout" : "Выйти"}
+                {isLanguageEnglish ? "LOG OUT" : "ВЫЙТИ"}
               </Link>
             </>
           ) : (
@@ -164,25 +164,25 @@ export default function Navbar() {
                 to="/"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "Home" : "Главная"}
+                {isLanguageEnglish ? "HOME" : "НА ГЛАВНУЮ"}
               </Link>
               <Link
                 to="/about"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "About us" : "О нас"}
+                {isLanguageEnglish ? "ABOUT" : "О НАС"}
               </Link>
               <Link
                 to="/register"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "Register" : "Регистрация"}
+                {isLanguageEnglish ? "SIGN UP" : "ЗАРЕГИСТРИРОВАТЬСЯ"}
               </Link>
               <Link
                 to="/login"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "Login" : "Войти"}
+                {isLanguageEnglish ? "LOG IN" : "ВЫЙТИ"}
               </Link>
             </>
           )}
@@ -190,7 +190,7 @@ export default function Navbar() {
             onClick={handleLanguageChange}
             className="text hover:text-white transition duration-300"
           >
-            {isLanguageEnglish ? "Change language" : "Сменить язык"}
+            {isLanguageEnglish ? "CHANGE LANGUAGE" : "СМЕНИТЬ ЯЗЫК"}
           </button>
 
           <Outlet />

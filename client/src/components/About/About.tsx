@@ -3,13 +3,14 @@ import MapGoogle from "./MapGoogle";
 
 export default function About() {
   return (
-    <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-20">
+    <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col gap-10">
       <div className="mx-auto max-w-2xl lg:mx-0">
         <h2 className="text-4xl font-bold sm:text-6xl mt-5">About us</h2>
         <p className="mt-6 text-lg leading-8">
-          Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem
-          cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat
-          aliqua.
+          HarmonyCare offers healthcare services to families, individuals
+          and companies with the best medical professionals with an empathetic
+          and friendly approach. We take care of our clients with respect, and
+          ensure them that they can always come to us in need of medical care.
         </p>
       </div>
       <div style={{ marginBottom: "50px" }}>

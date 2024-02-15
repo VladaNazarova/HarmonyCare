@@ -1,15 +1,15 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPageService } from "../../redux/thunks";
+import "./Services.css";
 
 type Params = {
   name: string;
-  id: string
+  id: string;
 };
 
 const Services = () => {
-
   const { name } = useParams<Params>();
   const dispatch = useAppDispatch();
   const serv = useAppSelector((state) => state.servPage.service);
@@ -26,22 +26,23 @@ const Services = () => {
       </div>
     );
   return (
-    <div className="bg-white shadow rounded-lg p-8 my-8 mx-auto max-w-2xl ">
-      <img src={serv.img} alt="img" />
-
-      <h1 className="text-3xl font-semibold text-gray-800 mb-4">{serv.name}</h1>
-      <p className="mb-6">{serv.description}</p>
-      <Link
-        to={`/appointment/${name}`}
-        className="inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"
-      >
-        Sign up for a consultation
-      </Link>
-      <ul>
-        <li>
+    <div className="flex p-12 mx-12 justify-between">
+      <div className="flex flex-col gap-4">
+        <h1 className="text-3xl font-semibold mb-4">{serv.name}</h1>
+        <p className="mb-6">{serv.description}</p>
+        <Link
+          to={`/appointment/${name}`}
+          className="text-white font-bold py-2 px-4 rounded btn"
+        >
+          Sign up for a consultation
+        </Link>
+        <p>
           Individual care for pediatric patients from birth to 18 years of age
-        </li>
-      </ul>
+        </p>
+      </div>
+      <div>
+        <img src={serv.img} alt="img" className="service-img" />
+      </div>
     </div>
   );
 };
