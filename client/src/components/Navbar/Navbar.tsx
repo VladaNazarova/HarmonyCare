@@ -195,7 +195,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "News" : "Новости"}
+                {isLanguageEnglish ? "NEWS" : "НОВОСТИ"}
               </Link>
               <Link
                 to="/register"
