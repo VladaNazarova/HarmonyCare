@@ -100,7 +100,7 @@ export default function Login() {
             </div>
           </div>
 
-          <div>
+          <div className="py-4">
             <button
               type="submit"
               className="flex w-full justify-center rounded-md bg-cyan-900 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-700"
