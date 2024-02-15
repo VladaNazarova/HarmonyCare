@@ -15,6 +15,7 @@ export default function ClientCabinet() {
 
   const goBack = () => {
     navigate("/");
+ 
   };
   return (
     <div className="p-4 max-w-md mx-auto">
@@ -45,7 +46,7 @@ export default function ClientCabinet() {
           </p>
           {order.status ? (
             <p className="rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white">
-              Оплачено
+              Paid
             </p>
           ) : (
             <StripePayment order={order} />

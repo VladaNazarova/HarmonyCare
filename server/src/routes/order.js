@@ -31,7 +31,7 @@ orderRouter.put('/:clientsaccount', async (req, res) => {
   const { status } = req.body;
   console.log(req.body, 'БОДИ');
   try {
-    const order = await Order.findByPk(id);
+    const order = await Order.findByPk(clientsaccount);
     console.log(order, 'ОРДЕР');
     if (order) {
       order.status = status;
