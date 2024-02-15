@@ -108,7 +108,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "News" : "Новости"}
+                {isLanguageEnglish ? "NEWS" : "Новости"}
               </Link>
                 </>
               )}
@@ -124,7 +124,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "News" : "Новости"}
+                {isLanguageEnglish ? "NEWS" : "Новости"}
               </Link>
                   <Link
                     to="/clientsaccount"
@@ -153,7 +153,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "News" : "Новости"}
+                {isLanguageEnglish ? "NEWS" : "Новости"}
               </Link>
                   <Link
                     to="/doctorsaccount"
