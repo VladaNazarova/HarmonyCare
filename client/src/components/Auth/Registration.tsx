@@ -73,7 +73,7 @@ export default function Registration() {
                 name="email"
                 type="email"
                 autoComplete="email"
-                placeholder="1@1.COM"
+                placeholder="example@example.com"
                 required
                 className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -107,7 +107,7 @@ export default function Registration() {
             </label>
             <div className="mt-2">
               <InputMask
-                mask="+999999999999"
+                mask="+99(999)999-99-99"
                 maskChar=" "
                 onChange={handleChange}
                 value={reg.phone_number}

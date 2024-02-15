@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPageService } from "../../redux/thunks";
+import "./Services.css";
 
 type Params = {
   name: string;
@@ -26,6 +27,7 @@ const Services = () => {
     );
 
   return (
+
     <div className="bg-white shadow rounded-lg p-8 my-8 mx-auto max-w-2xl ">
       <img src={serv.img} alt="img" />
 
@@ -42,9 +44,14 @@ const Services = () => {
       </Link>
       <ul className="list-disc ml-5 mt-4">
         <li>
+
+ 
           Individual care for pediatric patients from birth to 18 years of age
-        </li>
-      </ul>
+        </p>
+      </div>
+      <div>
+        <img src={serv.img} alt="img" className="service-img" />
+      </div>
     </div>
   );
 };

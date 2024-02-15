@@ -42,7 +42,7 @@ export default function DoctorOnAppointment({
           >
             <div className="flex items-center space-x-4">
               <img
-                src={`http://localhost:3000/images/${doctor.img}`}
+                src={`http://localhost:9000/images/${doctor.img}`}
                 alt="Doctor"
                 className="w-24 h-24 rounded-full object-cover"
               />
