@@ -14,7 +14,7 @@ export default function MapGoogle() {
           borderRadius: "20px",
         }}
         gestureHandling={"greedy"}
-        disableDefaultUI={true}
+        disableDefaultUI={false}
         mapId={import.meta.env.VITE_GOOGLE_MAP_ID}
       >
         <AdvancedMarker position={position}></AdvancedMarker>

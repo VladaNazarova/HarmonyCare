@@ -1,3 +1,20 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p, h2, span, a, label {
+  color: #164863;
+}
+
+button {
+  background-color: #164863;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

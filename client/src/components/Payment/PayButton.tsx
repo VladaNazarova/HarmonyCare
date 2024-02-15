@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
+// import StripePayment from "./StripePayment";
 
 export default function PayButton() {
   const [product, setProduct] = useState({
@@ -32,15 +33,18 @@ export default function PayButton() {
   };
 
   return (
-    <StripeCheckout
-      stripeKey={import.meta.env.VITE_KEY}
-      token={makePayment}
-      name="Service"
-      amount={product.price * 100}
-    >
-      <button className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        Pay
-      </button>
-    </StripeCheckout>
+    <div>
+      <StripeCheckout
+        stripeKey={import.meta.env.VITE_KEY}
+        token={makePayment}
+        name="Service"
+        amount={product.price * 100}
+      >
+        <button className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          Pay
+        </button>
+      </StripeCheckout>
+      {/* <StripePayment /> */}
+    </div>
   );
 }

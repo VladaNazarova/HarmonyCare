@@ -26,8 +26,11 @@ orderRouter.post('/:specialization', async (req, res) => {
 });
 orderRouter.get('/', async (req, res) => {
   try {
-    const orders = await Order.findAll();
-
+    const { email } = req.session;
+    console.log(email)
+    const user = await User.findOne({ where: { email } });
+    const orders = await Order.findAll({ where: { user_id: user.id } });
+    console.log(orders, 'ordersSSSSSSSSSSSS');
     res.json(orders);
   } catch (error) {
     res.status(500).json({ error: error.message });

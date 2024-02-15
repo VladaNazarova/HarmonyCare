@@ -30,12 +30,7 @@ const Services = () => {
       <img src={serv.img} alt="img" />
 
       <h1 className="text-3xl font-semibold text-gray-800 mb-4">{serv.name}</h1>
-      <p className="text-gray-600 mb-6">{serv.description}</p>
-
-      <div className="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
-        <p className="font-semibold">Consultation at: {serv.price}</p>
-      </div>
-
+      <p className="mb-6">{serv.description}</p>
       <Link
         to={`/appointment/${name}`}
         className="inline-block bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700 transition-colors"

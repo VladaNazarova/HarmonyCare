@@ -1,32 +1,32 @@
-@import 'tailwindcss/utilities'; // Убедитесь, что Tailwind CSS импортирован для использования @apply
+@import "tailwindcss/utilities"; // Убедитесь, что Tailwind CSS импортирован для использования @apply
 
 .mainDiv {
-  @apply flex justify-between items-center p-4;
-  
+  @apply flex justify-between items-center p-4 mx-12 mb-6;
+
   @media (max-width: 600px) {
     @apply flex-wrap; // Перенос элементов для маленьких экранов
   }
 }
 
 .logo {
-  @apply w-96; // Ширина логотипа для больших экранов
-  
+  @apply w-80; // Ширина логотипа для больших экранов
+
   @media (max-width: 600px) {
     @apply w-full; // Логотип занимает всю ширину экрана на маленьких устройствах
   }
 }
 
 .text {
-  @apply flex-1 mr-8;
-  
+  @apply mr-8;
+
   @media (max-width: 600px) {
     @apply mr-0 mb-4; // Убираем margin справа и добавляем снизу для маленьких экранов
   }
 }
 
 .textContent {
-  @apply text-5xl; // Основной размер текста
-  
+  @apply flex flex-col justify-between text-5xl; // Основной размер текста
+
   @media (max-width: 600px) {
     @apply text-3xl; // Уменьшаем размер текста для маленьких экранов
   }
@@ -37,9 +37,10 @@
 }
 
 .registerLink {
-  @apply inline-block px-6 py-2 bg-blue-600 text-white font-medium text-sm rounded transition duration-300 my-10;
-  
+  background-color: #164863;
+  @apply inline-block px-6 py-2 text-white font-medium text-sm rounded transition duration-300 mt-20;
+
   &:hover {
-    @apply bg-blue-700;
+    background-color: #1c5574
   }
 }
