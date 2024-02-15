@@ -127,7 +127,7 @@ export const fetchTakeOrder = createAsyncThunk("order/take", async () => {
   return response.data;
 });
 
-export const updateOrderStatus = createAsyncThunk(
+export const fetchOrderStatus = createAsyncThunk(
   "order/updateStatus",
   async (clientsaccount) => {
     const response = await axios.put(

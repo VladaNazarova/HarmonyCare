@@ -7,7 +7,8 @@ orderRouter.post('/:specialization', async (req, res) => {
   try {
     const user = await User.findOne({ where: { email }, raw: true });
     const serv = await Service.findOne({ where: { name: specialization }, raw: true });
-    const { status, doctor_id, date, time } = req.body;
+    
+    const { doctor_id, date, time } = req.body;
     const newOrder = await Order.create({
       user_id: user.id,
       doctor_id,
@@ -15,7 +16,7 @@ orderRouter.post('/:specialization', async (req, res) => {
       service_type: specialization,
       date,
       time,
-      status
+      // status: 
     });
     res.status(201).json(newOrder);
   } catch (error) {
