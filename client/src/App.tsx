@@ -16,7 +16,6 @@ import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
 import NewsList from "./components/News/NewsList";
 
-
 function App() {
   return (
     <>
@@ -28,11 +27,15 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="/doctorsaccount" element={<DoctorCabinet />}></Route>
+
           <Route path="/clientsaccount" element={<ClientCabinet />}></Route>
           <Route path="/usercreation" element={<ClientCreation />}></Route>
-          <Route path="/payment" element={<PayButton />}></Route>
-          <Route path="/:name" element={<Services />}></Route>
           <Route path="/forgotpassword" element={<EnterMail />}></Route>
+
+          <Route path="/payment" element={<PayButton />}></Route>
+          <Route path="/testnews" element={<NewsList articles={[]} />} />
+          <Route path="/:name" element={<Services />}></Route>
+
           <Route
             path="/resetpassword/:token"
             element={<UpdatePassword />}
@@ -41,7 +44,6 @@ function App() {
             path="/appointment/:specialization"
             element={<Appointment />}
           ></Route>
-          <Route path="/testnews" element={<NewsList articles={[]}/>}/>
 
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>

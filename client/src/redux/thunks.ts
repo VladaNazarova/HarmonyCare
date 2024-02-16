@@ -109,9 +109,9 @@ export const fetchDoctorsBySpecialization = createAsyncThunk(
 
 export const fetchAddOrder = createAsyncThunk(
   "order/add",
-  async ({ data }: { data: any; specialization: string }) => {
+  async ({ data, specialization }: { data: any; specialization: string }) => {
     const response: AxiosResponse = await axios.post(
-      `${import.meta.env.VITE_URL}/clientsaccount`,
+      `${import.meta.env.VITE_URL}/clientsaccount/${specialization}`,
       data,
       { withCredentials: true }
     );
@@ -126,3 +126,16 @@ export const fetchTakeOrder = createAsyncThunk("order/take", async () => {
   );
   return response.data;
 });
+
+export const fetchOrderStatus = createAsyncThunk(
+  "order/updateStatus",
+async (clientsaccount, data) => {
+    const response = await axios.put(
+      `${import.meta.env.VITE_URL}/${clientsaccount}`, data ,
+      {
+        status: true,
+      }
+    );
+    return { clientsaccount, status: response.data.status };
+  }
+);

@@ -13,6 +13,7 @@ export default function ClientCabinet() {
     dispatch(fetchTakeOrder());
   }, [dispatch]);
 
+
   // const goBack = () => {
   //   navigate("/");
   // };
@@ -24,6 +25,7 @@ export default function ClientCabinet() {
           <div
             key={index}
             className="flex flex-col justify-center items-start gap-2 bg-white rounded-lg shadow-lg p-6 mb-4
+
                      transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
           >
             <p className="text-lg font-semibold mb-2">

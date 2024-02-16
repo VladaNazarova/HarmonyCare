@@ -14,6 +14,7 @@ export default function Appointment() {
   }, [dispatch]);
 
   const handleSelectDoctor = (id: string | null) => {
+
     console.log(id, "handleSelectDoctor Выше");
 
     setSelectedDoctorId(id);

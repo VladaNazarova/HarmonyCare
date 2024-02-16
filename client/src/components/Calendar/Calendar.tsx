@@ -3,56 +3,53 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useAppDispatch } from "../../redux/hooks";
 import { fetchAddOrder } from "../../redux/thunks";
-import { useNavigate } from "react-router-dom";
+import { Params, useNavigate, useParams } from "react-router-dom";
 
 type CalendarProps = {
   selectedDoctorId: string | null;
 };
-
 export default function Calendar({ selectedDoctorId }: CalendarProps) {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const { specialization } = useParams<Params>();
+  
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
-
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
     navigate("/clientsaccount");
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!selectedDate || !selectedTime) {
       console.log("Date or time is not selected");
       return;
     }
-
     const formattedDate = selectedDate.toISOString().slice(0, 10);
-
     const orderData = {
       date: formattedDate,
       time: selectedTime,
       doctor_id: selectedDoctorId,
+      service_id: 0,
+      status: false,
+      service_type: "",
+      user_id: 0,
+      specialization: specialization,
     };
-
     dispatch(
       fetchAddOrder({
         data: orderData,
-        specialization: "PPP",
+        specialization: specialization,
       })
     ).then(() => {
       handleOpenModal();
     });
   };
-
   return (
     <div>
       <h2 className="text-4xl font-semibold text-center mb-6">
