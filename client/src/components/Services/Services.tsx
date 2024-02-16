@@ -26,23 +26,24 @@ const Services = () => {
       </div>
     );
   return (
-    <div className="flex p-12 mx-12 justify-between">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-3xl font-semibold mb-4">{serv.name}</h1>
-        <p className="mb-6">{serv.description}</p>
-        <Link
-          to={`/appointment/${name}`}
-          className="text-white font-bold py-2 px-4 rounded btn"
-        >
-          Sign up for a consultation
-        </Link>
-        <p>
-          Individual care for pediatric patients from birth to 18 years of age
-        </p>
+    <div className="bg-white rounded-lg p-8 my-8 mx-auto max-w-2xl ">
+      <img src={serv.img} alt="img" className="service-img"/>
+
+      <h1 className="text-3xl font-semibold text-gray-800 my-4">{serv.name}</h1>
+      <p className="mb-6">{serv.description}</p>
+      <div className="mb-6 p-4 bg-green-100 border-l-4 border-green-500 text-green-700">
+        <p className="font-semibold">Consultation Price: {serv.price}</p>
       </div>
-      <div>
-        <img src={serv.img} alt="img" className="service-img" />
-      </div>
+      <Link
+        to={`/appointment/${name}`}
+        className="inline-block bg-cyan-900 text-white font-bold py-2 px-4 rounded hover:bg-cyan-700 transition-colors"
+      >
+        Sign up for a consultation
+      </Link>
+
+      <p className="my-4">
+        Individual care for pediatric patients from birth to 18 years of age
+      </p>
     </div>
   );
 };

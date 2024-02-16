@@ -30,10 +30,14 @@ export default function PatientForm({
     const formData = new FormData(e.target as HTMLFormElement);
     try {
       const data = Object.fromEntries(formData.entries());
-      const response = await axios.post("http://localhost:9000/doctorsaccount", data, {
-        withCredentials: true,
-      });
-      console.log("🚀 ~ handleAdd ~ response:", response)
+      const response = await axios.post(
+        "http://localhost:9000/doctorsaccount",
+        data,
+        {
+          withCredentials: true,
+        }
+      );
+      console.log("🚀 ~ handleAdd ~ response:", response);
       onAddPatient(response.data);
       setOpen(false);
       setOpenForm(false);
@@ -79,7 +83,7 @@ export default function PatientForm({
                     <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                       <Dialog.Title
                         as="h3"
-                        className="text-base font-semibold leading-6 text-gray-900"
+                        className="text-base font-semibold leading-6 text-cyan-900"
                       >
                         Fill out patient registration form
                       </Dialog.Title>
@@ -92,7 +96,7 @@ export default function PatientForm({
                                 <div className="sm:col-span-4">
                                   <label
                                     htmlFor="name"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Name
                                   </label>
@@ -103,7 +107,7 @@ export default function PatientForm({
                                         name="name"
                                         id="name"
                                         autoComplete="name"
-                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                        className="block flex-1 border-0 bg-transparent p-2 text-cyan-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="John"
                                       />
                                     </div>
@@ -113,7 +117,7 @@ export default function PatientForm({
                                 <div className="sm:col-span-4">
                                   <label
                                     htmlFor="name"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Last name
                                   </label>
@@ -124,7 +128,7 @@ export default function PatientForm({
                                         name="last_name"
                                         id="lastname"
                                         autoComplete="lastname"
-                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                        className="block flex-1 border-0 bg-transparent p-2 text-cyan-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="Doe"
                                       />
                                     </div>
@@ -134,7 +138,7 @@ export default function PatientForm({
                                 <div className="sm:col-span-4">
                                   <label
                                     htmlFor="name"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Age
                                   </label>
@@ -145,28 +149,10 @@ export default function PatientForm({
                                         name="age"
                                         id="age"
                                         autoComplete="age"
-                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                        className="block flex-1 border-0 bg-transparent p-2 text-cyan-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="18"
                                       />
                                     </div>
-                                  </div>
-                                </div>
-
-                                <div className="sm:col-span-4">
-                                  <label
-                                    htmlFor="email"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
-                                  >
-                                    Email address
-                                  </label>
-                                  <div className="mt-2">
-                                    <input
-                                      id="email"
-                                      name="email"
-                                      type="email"
-                                      autoComplete="email"
-                                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                    />
                                   </div>
                                 </div>
 
@@ -178,11 +164,11 @@ export default function PatientForm({
                                   >
                                     {({ open }) => (
                                       <>
-                                        <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
+                                        <Listbox.Label className="block text-sm font-medium leading-6 text-cyan-900">
                                           Gender
                                         </Listbox.Label>
                                         <div className="relative mt-2">
-                                          <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                                          <Listbox.Button className="relative w-full cursor-default rounded-md bg-white p-2 pr-2 text-left text-cyan-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
                                             <span className="flex items-center">
                                               <span className="ml-3 block truncate">
                                                 {selected}
@@ -210,9 +196,9 @@ export default function PatientForm({
                                                   className={({ active }) =>
                                                     `${
                                                       active
-                                                        ? "bg-indigo-600 text-white"
-                                                        : "text-gray-900"
-                                                    } relative cursor-default select-none py-2 pl-3 pr-9`
+                                                        ? "bg-cyan-100"
+                                                        : "text-cyan-900"
+                                                    } relative cursor-default select-none p-2`
                                                   }
                                                   value={gender}
                                                 >
@@ -235,7 +221,7 @@ export default function PatientForm({
                                                           className={`${
                                                             active
                                                               ? "text-white"
-                                                              : "text-indigo-600"
+                                                              : "text-cyan-900"
                                                           } absolute inset-y-0 right-0 flex items-center pr-4`}
                                                         >
                                                           <CheckIcon
@@ -255,11 +241,28 @@ export default function PatientForm({
                                     )}
                                   </Listbox>
                                 </div>
+                                <div className="sm:col-span-4">
+                                  <label
+                                    htmlFor="email"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
+                                  >
+                                    Email address
+                                  </label>
+                                  <div className="mt-2">
+                                    <input
+                                      id="email"
+                                      name="email"
+                                      type="email"
+                                      autoComplete="email"
+                                      className="block w-full rounded-md border-0 p-2 text-cyan-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    />
+                                  </div>
+                                </div>
 
                                 <div className="col-span-full">
                                   <label
                                     htmlFor="health"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Health issues
                                   </label>
@@ -268,7 +271,7 @@ export default function PatientForm({
                                       id="health"
                                       name="health_issues"
                                       rows={3}
-                                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                      className="block w-full rounded-md border-0 p-2 text-cyan-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                       defaultValue={""}
                                     />
                                   </div>
@@ -277,7 +280,7 @@ export default function PatientForm({
                                 <div className="col-span-full">
                                   <label
                                     htmlFor="tests"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Test results
                                   </label>
@@ -286,7 +289,7 @@ export default function PatientForm({
                                       id="tests"
                                       name="analyses_result"
                                       rows={3}
-                                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                      className="block w-full rounded-md border-0 p-2 text-cyan-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                       defaultValue={""}
                                     />
                                   </div>
@@ -295,7 +298,7 @@ export default function PatientForm({
                                 <div className="col-span-full">
                                   <label
                                     htmlFor="treatment"
-                                    className="block text-sm font-medium leading-6 text-gray-900"
+                                    className="block text-sm font-medium leading-6 text-cyan-900"
                                   >
                                     Treatment plan
                                   </label>
@@ -304,7 +307,7 @@ export default function PatientForm({
                                       id="treatment"
                                       name="treatment"
                                       rows={3}
-                                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                      className="block w-full rounded-md border-0 p-2 text-cyan-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                       defaultValue={""}
                                     />
                                   </div>
@@ -318,14 +321,14 @@ export default function PatientForm({
                               type="button"
                               onClick={() => setOpen(false)}
                               ref={cancelButtonRef}
-                              className="text-sm font-semibold leading-6 text-gray-900"
+                              className="text-sm font-semibold leading-6 text-cyan-900"
                             >
                               Cancel
                             </button>
                             <button
                               type="submit"
                               onClick={() => setOpen(false)}
-                              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                              className="rounded-md bg-cyan-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-cyan-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             >
                               Save
                             </button>

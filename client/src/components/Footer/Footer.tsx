@@ -1,3 +1,5 @@
+import "./Footer.css";
+
 export default function Footer() {
   return (
     <footer className="sticky bottom-0 left-0 z-20 w-full p-4 bg-white border-t border-gray-200 shadow md:flex md:items-center md:justify-between md:p-6">
@@ -9,7 +11,7 @@ export default function Footer() {
           >
             <img
               src="./src/assets/justlogo.png"
-              className="h-8"
+              className="h-10 pt-1"
               alt="Logo"
             />
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">

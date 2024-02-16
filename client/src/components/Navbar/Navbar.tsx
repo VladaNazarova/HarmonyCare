@@ -59,7 +59,7 @@ export default function Navbar() {
         <a href="/">
           <div className="text text-lg font-bold flex items-center justify-between logo-container">
             <img
-              className="mx-auto h-12 w-auto"
+              className="mx-auto h-12 w-auto mt-2"
               src="./src/assets/justlogo.png"
               alt="HarmonyCare Logo"
             />
@@ -80,18 +80,18 @@ export default function Navbar() {
                   >
                     {isLanguageEnglish ? "HOME" : "НА ГЛАВНУЮ"}
                   </Link>
-                  <Link
+                  {/* <Link
                     to="/doctorsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
+                    {isLanguageEnglish ? "DOCTOR" : "ВРАЧ"}
                   </Link>
                   <Link
                     to="/clientsaccount"
                     className="text hover:text-white transition duration-300"
                   >
-                    {isLanguageEnglish ? "MY ACCOUNT" : "ЛИЧНЫЙ КАБИНЕТ"}
-                  </Link>
+                    {isLanguageEnglish ? "CLIENT" : "ПАЦИЕНТ"}
+                  </Link> */}
                   <Link
                     to="/usercreation"
                     className="text hover:text-white transition duration-300"
@@ -124,6 +124,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
+
                 {isLanguageEnglish ? "NEWS" : "НОВОСТИ"}
               </Link>
                   <Link
@@ -153,6 +154,7 @@ export default function Navbar() {
                 to="/testnews"
                 className="text hover:text-white transition duration-300"
               >
+
                 {isLanguageEnglish ? "NEWS" : "НОВОСТИ"}
               </Link>
                   <Link
@@ -207,7 +209,7 @@ export default function Navbar() {
                 to="/login"
                 className="text hover:text-white transition duration-300"
               >
-                {isLanguageEnglish ? "LOG IN" : "ВЫЙТИ"}
+                {isLanguageEnglish ? "LOG IN" : "ВОЙТИ"}
               </Link>
             </>
           )}
