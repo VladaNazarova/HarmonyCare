@@ -48,7 +48,10 @@ function App() {
 
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
+        <div style={{ marginTop: "100px" }} >
         <Footer />
+        </div>
+
       </div>
 
     </>

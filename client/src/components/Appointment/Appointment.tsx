@@ -23,7 +23,7 @@ export default function Appointment() {
   console.log(selectedDoctorId, "selectedDoctorId Выше");
 
   return (
-    <div className="flex justify-center items-center gap-4 p-6 m-6 my-8">
+    <div className="flex justify-center items-center gap-4 p-6 m-6 my-8 mb-0" style={{height: "500px"}}>
       <div>
         <DoctorOnAppointment
           onSelectDoctor={handleSelectDoctor}

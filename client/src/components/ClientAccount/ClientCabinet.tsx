@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchTakeOrder } from "../../redux/thunks";
 import StripePayment from "../Payment/StripePayment";
@@ -12,7 +11,6 @@ export default function ClientCabinet() {
   useEffect(() => {
     dispatch(fetchTakeOrder());
   }, [dispatch]);
-
 
   // const goBack = () => {
   //   navigate("/");
