@@ -25,13 +25,13 @@ orderRouter.post('/:specialization', async (req, res) => {
 });
 
 orderRouter.put('/:clientsaccount', async (req, res) => {
-  const { clientsaccount } = req.params;
+  const { id } = req.params;
   console.log('попали в ручку');
   console.log(req.params, 'ПАРАМС');
   const { status } = req.body;
   console.log(req.body, 'БОДИ');
   try {
-    const order = await Order.findByPk(clientsaccount);
+    const order = await Order.findByPk(id);
     console.log(order, 'ОРДЕР');
     if (order) {
       order.status = status;

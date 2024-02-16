@@ -114,6 +114,7 @@ export type OrderType = {
   service_type: string;
   user_id: number;
   date: string;
+  login: string;
 
   time: string;
   status: boolean;

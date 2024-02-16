@@ -5,7 +5,7 @@ import StripeCheckout from "react-stripe-checkout";
 export default function StripePayment({ order }) {
   const [product, setProduct] = useState({
     name: "service",
-    price: 100, // Установите цену заказа
+    price: 100, 
   });
 
   const makePayment = (token) => {

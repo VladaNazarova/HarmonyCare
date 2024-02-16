@@ -19,7 +19,6 @@ export default function ClientCabinet() {
   // };
 
   return (
-
     <>
       <div className="flex flex-wrap gap-4 justify-center items-center">
         {orders.map((order, index) => (
@@ -37,10 +36,13 @@ export default function ClientCabinet() {
               Appointment time:{" "}
               <span className="font-normal">{order.time}</span>
             </p>
-            <p className="text-lg font-semibold">
-              Doctors name:{" "}
-              <span className="font-normal">{order.doctor_id}</span>
+            <p className="text-lg text-gray-700 font-semibold">
+              Doctor’s name:
+              <span className="font-normal">
+                {order.Doctor ? order.Doctor.login : "No doctor"}
+              </span>
             </p>
+
             <>
               <StripePayment />
             </>
