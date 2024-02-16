@@ -15,7 +15,9 @@ export default function ClientCabinet() {
 
   const goBack = () => {
     navigate("/");
- 
+
+    
+    
   };
   return (
     <div className="p-4 max-w-md mx-auto">
@@ -42,14 +44,18 @@ export default function ClientCabinet() {
           </p>
           <p className="text-lg text-gray-700 font-semibold">
             Doctor’s name:
-            <span className="font-normal"> {order.Doctor.login}</span>
+            <span className="font-normal">
+              
+              {order.Doctor ? order.Doctor.login : "No doctor"}
+            </span>
           </p>
+
           {order.status ? (
             <p className="rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white">
-              Paid
+              Оплачено
             </p>
           ) : (
-            <StripePayment order={order} />
+            <StripePayment  />
           )}
         </div>
       ))}

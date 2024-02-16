@@ -109,10 +109,11 @@ export type DoctorsSliceArr = {
 };
 
 export type OrderType = {
+  Doctor: any;
   service_type: string;
   user_id: number;
   date: string;
-  
+  login: string;
   time: string;
   status: boolean;
   doctor_id: number;

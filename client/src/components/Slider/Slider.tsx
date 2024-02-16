@@ -1,36 +1,56 @@
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
-import './Slider.css';
+import "./Slider.css";
 
 export default function Slider() {
   const slides = [
     {
-      url: "https://www.funnyart.club/uploads/posts/2022-05/1654008355_12-www-funnyart-club-p-kartinki-vrachi-meditsina-krasivo-12.jpg",
+      url: "https://vestnikpfo.ru/upload/medialibrary/6e2/r1ctf8hs34mg1slj7rv1tkbmxjacspk1.jpg",
     },
     {
-      url: "https://www.medisite.fr/files/images/article/9/2/6/5488629/6750759-inline.jpg",
+      url: "https://cdn.easyweek.io/stc-cgi/image/1000x400/f/86518/5341x3561/5d333eebd8/shutterstock_1917257933.jpg",
     },
     {
-      url: "https://kartinki.pics/uploads/posts/2022-03/1646704830_75-kartinkin-net-p-krasivie-kartinki-stomatologiya-80.jpg",
+      url: "https://skoromed-klinika.ru/wp-content/uploads/2021/11/uzi-beremenn.jpg",
     },
     {
-      url: "https://invaworld.ru/wp-content/uploads/2019/03/43.jpg",
+      url: "https://olimpiyamed.ru/images/dermatologiya.jpg",
     },
     {
-      url: "https://www.shkolazhizni.ru/img/content/i243/243416_or.jpg",
+      url: "https://www.secondwavemedia.com/midland/galleries/nurses-nosign-mymichiganhealth.jpg",
+    },
+    {
+      url: "https://www.svsu.edu/media/00landingpages/mmh_banner_mobile_v2.jpg",
+    },
+    {
+      url: "https://i0.wp.com/www.usa.edu/wp-content/uploads/2021/10/three-major-issues.gif?resize=1476%2C1170&ssl=1",
+    },
+    {
+      url: "https://dent.spb.ru/upload/iblock/e1d/e1d21fc172839767e43c28a16705e4e8.jpg",
+    },
+    {
+      url: "https://www.canarahsbclife.com/content/dam/choice/blog-inner/images/what-is-health-insurance-and-how-can-it-help-you.jpg",
     },
   ];
 
   const [current, setCurrent] = useState(0);
+  const next = () => {
+    const newIndex = current === slides.length - 1 ? 0 : current + 1;
+    setCurrent(newIndex);
+  };
+
+  
+  useEffect(() => {
+    const slideInterval = setInterval(next, 3000);
+
+   
+    return () => clearInterval(slideInterval);
+  }, [current]);
+
   const prev = () => {
     const isFirst = current === 0;
     const newIndex = isFirst ? slides.length - 1 : current - 1;
-    setCurrent(newIndex);
-  };
-  const next = () => {
-    const isLast = current === slides.length - 1;
-    const newIndex = isLast ? 0 : current + 1;
     setCurrent(newIndex);
   };
 
@@ -59,7 +79,9 @@ export default function Slider() {
             onClick={() => dotGo(slideIndex)}
             className="text-2xl cursor-pointer"
           >
-            <RxDotFilled style={{color: "#164863"}} />
+            <RxDotFilled
+              style={{ color: current === slideIndex ? "#164863" : "#ccc" }}
+            />
           </div>
         ))}
       </div>

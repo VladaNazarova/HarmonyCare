@@ -66,6 +66,50 @@ Whether your visit is for a routine check-up, vaccination, or a concern about yo
         price: '100$',
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        name: 'Ophthalmologist',
+        description:
+          'At our private clinic, we understand the importance of clear vision and healthy eyes in your daily life. Our ophthalmology service is dedicated to providing comprehensive eye care that exceeds your expectations. From routine eye exams to advanced diagnostic tests and cutting-edge treatments for various eye conditions, our skilled ophthalmologists employ the latest technology and techniques to ensure you receive the highest standard of care. Whether you need prescription lenses, are considering corrective surgery, or seeking treatment for an eye disease, our team is here to support your vision health every step of the way. Experience personalized eye care, designed to bring your world into clearer focus.',
+        logo: 'https://i.pinimg.com/564x/82/58/6f/82586fa9578ad6719a64992b03246194.jpg',
+        promo: 'See Life Clearly!',
+        img: 'https://russdoc.ru/wp-content/uploads/2017/07/ophthalmology.jpg',
+        price: '100$',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Urology',
+        description:
+          'Our private clinics urology service is dedicated to providing advanced and compassionate care for a wide range of urological conditions. Our team of experienced urologists utilizes the latest diagnostic tools and treatment techniques to address issues affecting the urinary tract, bladder, kidneys, and male reproductive organs. From common concerns such as urinary tract infections and kidney stones to complex conditions like prostate cancer and male infertility, were committed to offering personalized solutions tailored to each patients needs. Our goal is to ensure your comfort, improve your health, and enhance your quality of life with professional, discreet, and effective urological care.',
+        logo: 'https://cdn2.iconfinder.com/data/icons/medicine-pt-11/100/113_-_kidney_organ_excretory_system_anatomy_urine-1024.png',
+        promo: 'Empowering Your Health, Enhancing Your Life!',
+        img: 'https://med-kontakt.ru/upload/iblock/2a8/Depositphotos_124360482_l_2015.jpg',
+        price: '100$',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Gastroenterology',
+        description:
+          'Our private clinic’s gastroenterology service is at the forefront of diagnosing and treating digestive and gastrointestinal disorders with compassion and precision. Our dedicated team of gastroenterologists combines their vast expertise with the latest in diagnostic technology to offer effective treatment plans for a wide range of conditions, from acid reflux and peptic ulcers to more complex diseases such as Crohns, colitis, and cancers of the digestive system. Each patients care plan is tailored to their unique needs, focusing not only on symptom relief but also on long-term wellness and prevention. We are committed to providing a comfortable and confidential environment where you can discuss your needs and concerns openly. Let us guide you on the path to better digestive health and improved quality of life.',
+        logo: 'https://cdn1.flamp.ru/6c6f065ef1d57871c3d80768429ae82a.jpeg',
+        promo: 'Restoring Digestive Health, Enhancing Lifes Pleasures!',
+        img: 'https://kaskadclinic.by/files/resized/912x540-ru-gastro_912x540.jpg',
+        price: '100$',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Dermatology',
+        description:
+          'Our cardiology service provides comprehensive care for patients with heart and vascular diseases. Our team of experienced cardiologists conducts diagnosis, treatment, and prevention of cardiovascular diseases using modern equipment and techniques. We offer a wide range of services, including electrocardiography, echocardiography, doppler ultrasound, MRI and CT scanning of the heart, as well as consultations on cardiovascular disease prevention. Our goal is to ensure our patients receive prompt and effective treatment, as well as help them maintain a high level of heart health.',
+        logo: 'https://i.pinimg.com/564x/16/23/55/162355b8da7fa6d0920f665799e41232.jpg',
+        promo: 'Healthy Skin, Radiant Confidence!',
+        img: 'https://skinor.ru/files/content/2019/12/1576801793.jpg',
+        price: '100$',
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ]);
   },

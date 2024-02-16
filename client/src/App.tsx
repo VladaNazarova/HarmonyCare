@@ -32,7 +32,7 @@ function App() {
           <Route path="/usercreation" element={<ClientCreation />}></Route>
           <Route path="/forgotpassword" element={<EnterMail />}></Route>
 
-          <Route path="/payment" element={<PayButton />}></Route>
+          <Route path="/payment" element={<PayButton order={undefined} />}></Route>
           <Route path="/testnews" element={<NewsList articles={[]} />} />
           <Route path="/:name" element={<Services />}></Route>
 
