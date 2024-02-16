@@ -57,17 +57,21 @@ export default function NewsList() {
   };
 
   return (
-    <Slider {...settings}>
-      {articles.length > 0 &&
-        articles.map((article, index) => (
-          <NewsItem
-            key={index}
-            title={article.title}
-            description={article.description}
-            url={article.url}
-            urlToImage={article.urlToImage}
-          />
-        ))}
-    </Slider>
+    <div className="min-h-screen flex flex-col items-center">
+      <div className="w-full max-w-screen-2xl px-4">
+        <Slider {...settings}>
+          {articles.length > 0 &&
+            articles.map((article, index) => (
+              <NewsItem
+                key={index}
+                title={article.title}
+                description={article.description}
+                url={article.url}
+                urlToImage={article.urlToImage}
+              />
+            ))}
+        </Slider>
+      </div>
+    </div>
   );
 }

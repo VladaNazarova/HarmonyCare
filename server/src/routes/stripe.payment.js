@@ -1,5 +1,6 @@
 const router = require('express').Router();
 require("dotenv").config()
+const { Order, User, Service } = require('../../db/models');
 
 const stripe = require("stripe")(process.env.STRIPE_KEY)
 
@@ -25,7 +26,7 @@ router.post("/", async (req, res) => {
           quantity: item.quantity,
         }
       }),
-      success_url: `${process.env.CLIENT}/clientsaccount`,
+      success_url: `${process.env.CLIENT}/`,
       cancel_url: `${process.env.CLIENT}/clientsaccount`,
     })
     res.json({ url: session.url })

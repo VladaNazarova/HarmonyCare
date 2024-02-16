@@ -25,9 +25,9 @@ export default function ClientCabinet() {
       >
         Go back
       </button>
-      {orders.map((order, index) => (
+      {orders.map((order) => (
         <div
-          key={index}
+          key={order.id}
           className="bg-white rounded-lg shadow-lg p-6 mb-4
                      transition duration-500 ease-in-out transform hover:-translate-y-1 hover:shadow-xl"
         >
@@ -42,7 +42,10 @@ export default function ClientCabinet() {
           </p>
           <p className="text-lg text-gray-700 font-semibold">
             Doctor’s name:
-            <span className="font-normal"> {order.Doctor.login}</span>
+            <span className="font-normal">
+              
+              {order.Doctor ? order.Doctor.login : "No doctor"}
+            </span>
           </p>
           {order.status ? (
             <p className="rounded-md bg-green-500 px-3 py-2 text-sm font-semibold text-white">

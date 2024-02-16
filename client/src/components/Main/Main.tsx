@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchGetServices } from "../../redux/thunks";
 import styles from "./Main.module.scss";
 import GreatingBar from "../GreatingBar/GreatingBar";
+import { BiNews } from "react-icons/bi";
+import NewsList from "../News/NewsList";
 
 export default function Main(): JSX.Element {
   const serv = useAppSelector((store) => store.serviceSlice.services);
@@ -20,7 +22,7 @@ export default function Main(): JSX.Element {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <GreatingBar />
       {!serv.length && (
         <p className="text-center mt-5 text-lg">Data not available</p>

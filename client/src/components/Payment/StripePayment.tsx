@@ -4,7 +4,7 @@ const StripePayment = () => {
   const [url, setUrl] = useState(null);
 
   const handleClick = () => {
-    fetch("http://localhost:3000/create-checkout-session", {
+    fetch("http://localhost:9000/create-checkout-session", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
