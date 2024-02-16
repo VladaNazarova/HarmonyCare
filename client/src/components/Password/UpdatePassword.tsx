@@ -29,14 +29,14 @@ export default function UpdatePassword(): JSX.Element {
     }
     try {
       const response = await axios.post(
-        `http://localhost:9000/recovery/resetpassword/${token}`,
+        `http://localhost:3000/recovery/resetpassword/${token}`,
         { password: passwordInput.password }
       );
       console.log(response);
       if (response.status === 200) {
         console.log("Password changed successfully");
         // navigate("/login");
-        window.location.href="/login"
+        window.location.href = "/login";
       } else {
         console.error("Error changing password");
       }

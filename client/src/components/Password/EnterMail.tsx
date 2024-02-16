@@ -20,7 +20,7 @@ export default function EnterMail(): JSX.Element {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:9000/recovery/sendmail",
+        "http://localhost:3000/recovery/sendmail",
         { email: emailInput.email }
       );
       if (response.status === 200) {
