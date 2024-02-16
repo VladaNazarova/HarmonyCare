@@ -22,7 +22,7 @@ export default function Main(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="max-h-fit flex flex-col">
       <GreatingBar />
       {!serv.length && (
         <p className="text-center mt-5 text-lg">Data not available</p>

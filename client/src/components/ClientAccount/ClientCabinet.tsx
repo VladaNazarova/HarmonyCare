@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchTakeOrder } from "../../redux/thunks";
 import StripePayment from "../Payment/StripePayment";
@@ -13,13 +12,11 @@ export default function ClientCabinet() {
     dispatch(fetchTakeOrder());
   }, [dispatch]);
 
-
   // const goBack = () => {
   //   navigate("/");
   // };
 
   return (
-
     <>
       <div className="flex flex-wrap gap-4 justify-center items-center">
         {orders.map((order, index) => (
