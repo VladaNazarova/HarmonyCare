@@ -1,27 +1,42 @@
-import React from 'react';
+import React from "react";
 
 type NewsItemProps = {
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
 };
 
-const NewsItem: React.FC<NewsItemProps> = ({ title, description, url, urlToImage }) => {
-    return (
-        <div className="border rounded-lg p-4">
-            <div className="relative">
-            <img src={urlToImage} className="w-full h-48 object-cover rounded-t-lg" alt="News" />
-                <div className="absolute inset-0 flex flex-col justify-end">
-                    <div className="bg-black bg-opacity-50 p-4 rounded-b-lg">
-                        <h3 className="text-xl font-semibold text-white">{title}</h3>
-                        <p className="text-gray-300">{description}</p>
-                        <a href={url} className="text-blue-500 hover:text-blue-700">Read more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+const NewsItem: React.FC<NewsItemProps> = ({
+  title,
+  description,
+  url,
+  urlToImage,
+}) => {
+  return (
+<div className="w-96 border border-gray-500 rounded-lg overflow-hidden mb-8 ml-8">
+  <div className="h-80 overflow-hidden">
+    <img
+      src={urlToImage}
+      alt="photo"
+      className="w-full h-full object-cover"
+    />
+  </div>
+  <div className="p-4 h-40 overflow-y-auto">
+    <h3 className="text-lg font-semibold">{title}</h3>
+    <p className="whitespace-normal text-sm w-96" >{description}</p>
+  </div>
+  <div className="p-4 text-right">
+    <a
+      href={url}
+      className="block py-2 px-4 rounded text-sm transition duration-300 focus:outline-none"
+      style={{ height: "2.5rem" }}
+    >
+      <span className="text-blue-700 hover:text-gray-900">Read more</span>
+    </a>
+  </div>
+</div>
+  );
 };
 
 export default NewsItem;

@@ -37,7 +37,7 @@ export type userType = {
 };
 
 export type userLoggedType = {
-  error: any;
+  error: string;
   email: string;
   password: string;
 };
@@ -109,11 +109,13 @@ export type DoctorsSliceArr = {
 };
 
 export type OrderType = {
+  id: number,
   Doctor: any;
   service_type: string;
   user_id: number;
   date: string;
   login: string;
+
   time: string;
   status: boolean;
   doctor_id: number;

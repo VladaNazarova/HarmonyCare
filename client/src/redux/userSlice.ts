@@ -10,6 +10,7 @@ const initialState: UserSliceType = {
     phone_number: "",
   },
   loggedUser: {
+    error: "",
     email: "",
     password: "",
   },

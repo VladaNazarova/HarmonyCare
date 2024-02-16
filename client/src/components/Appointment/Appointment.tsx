@@ -5,33 +5,32 @@ import { fetchCheckUserSession } from "../../redux/thunks";
 import Calendar from "../Calendar/Calendar";
 import DoctorOnAppointment from "../DoctorOnAppoint/DoctorOnAppointment";
 
-export default function Appointment(){
-  const [selectedDoctorId, setSelectedDoctorId] = useState<string | null>(null); 
+export default function Appointment() {
+  const [selectedDoctorId, setSelectedDoctorId] = useState<string | null>(null);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchCheckUserSession());
   }, [dispatch]);
 
-  
   const handleSelectDoctor = (id: string | null) => {
 
-    
+    console.log(id, "handleSelectDoctor Выше");
+
     setSelectedDoctorId(id);
   };
 
+  console.log(selectedDoctorId, "selectedDoctorId Выше");
+
   return (
-    <div className="flex container mx-auto py-8 ">
-      <div className="flex-grow bg-white shadow-lg p-6 rounded-lg mr-2">
-        
+    <div className="flex justify-center items-center gap-4 p-6 m-6 my-8">
+      <div>
         <DoctorOnAppointment
           onSelectDoctor={handleSelectDoctor}
           selectedDoctorId={selectedDoctorId}
         />
       </div>
-      <div className="block w-0.5 bg-blue-500 mx-2"></div>
-      <div className="flex-grow bg-white shadow-lg p-6 rounded-lg ml-2">
-      
+      <div>
         <Calendar selectedDoctorId={selectedDoctorId} />
       </div>
     </div>

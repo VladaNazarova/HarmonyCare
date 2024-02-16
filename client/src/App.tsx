@@ -15,6 +15,7 @@ import EnterMail from "./components/Password/EnterMail";
 import UpdatePassword from "./components/Password/UpdatePassword";
 import About from "./components/About/About";
 import NewsList from "./components/News/NewsList";
+import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute";
 
 function App() {
   return (
@@ -47,8 +48,9 @@ function App() {
 
           <Route path="/services/:id" element={<Services />}></Route>
         </Routes>
+        <Footer />
       </div>
-      <Footer />
+
     </>
   );
 }
