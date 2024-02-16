@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
-
+// import { NavigateFunction, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 type PropsPasswordType = {
   password: string;
   repeatPassword: string;
@@ -13,7 +13,7 @@ export default function UpdatePassword(): JSX.Element {
     password: "",
     repeatPassword: "",
   });
-  const navigate: NavigateFunction = useNavigate();
+  // const navigate: NavigateFunction = useNavigate();
 
   const handlePasswordChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -35,7 +35,8 @@ export default function UpdatePassword(): JSX.Element {
       console.log(response);
       if (response.status === 200) {
         console.log("Password changed successfully");
-        navigate("/login");
+        // navigate("/login");
+        window.location.href="/login"
       } else {
         console.error("Error changing password");
       }

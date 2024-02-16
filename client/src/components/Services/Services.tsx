@@ -1,8 +1,8 @@
-import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchPageService } from "../../redux/thunks";
 import "./Services.css";
+import { Link, useParams } from "react-router-dom";
 
 type Params = {
   name: string;
