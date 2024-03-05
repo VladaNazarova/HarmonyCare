@@ -14,7 +14,7 @@ npm start
 - в своем личном кабинете врач может вести пациентов
 - реализован функционал записи на прием (для пациента)
   
-$~~~~~~~~~~~~~~~~~$![134a56c3-b32c-47d9-94f6-0d7f8f6a7f0e](https://github.com/VladaNazarova/HarmonyCare/assets/141823453/dcfaf8ab-bd8e-48b1-a526-a43ee1191f0f)
+![134a56c3-b32c-47d9-94f6-0d7f8f6a7f0e](https://github.com/VladaNazarova/HarmonyCare/assets/141823453/dcfaf8ab-bd8e-48b1-a526-a43ee1191f0f)
 ![7738c17e-da21-4774-8c2b-924eba754a95](https://github.com/VladaNazarova/HarmonyCare/assets/141823453/61c51db3-ba21-4de5-8867-8ce5df681b37)
 ### Планы
 - рефакторинг кода
